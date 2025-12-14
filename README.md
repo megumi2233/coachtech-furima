@@ -102,3 +102,153 @@ php artisan migrate
 php artisan db:seed
 ```
 
+#### 8. ストレージのシンボリックリンク作成
+
+商品画像やプロフィール画像を storage/app/public から公開ディレクトリに表示できるようにするため、以下のコマンドを実行します。
+
+このコマンドも **php コンテナ内のプロジェクトルート**で実行してください。
+
+```bash
+php artisan storage:link
+```
+
+---
+
+### 🛠 使用技術（この例で使われている環境）
+- **PHP 8.2**  
+- **Laravel 10.x**  
+- **MySQL 8.0.x**  
+- **Docker（開発環境構築）**  
+  - nginx（Webサーバ）  
+  - php（アプリケーション）  
+  - mysql（データベース）  
+  - phpmyadmin（DB管理ツール）  
+- **フロントエンドビルド**: Vite（Laravel公式推奨のビルドツール）
+
+---
+
+### 📋 テーブル設計
+#### 1. users テーブル (ユーザー情報)
+
+| カラム名 | 型 | PK | UNIQUE | NOT NULL | FK (外部キー) |
+|---|---|:---:|:---:|:---:|---|
+| id | unsigned bigint | ○ | | ○ | |
+| name | string | | | ○ | |
+| email | string | | ○ | ○ | |
+| email_verified_at | timestamp | | | | |
+| password | string | | | ○ | |
+| remember_token | string | | | | |
+| created_at | timestamp | | | | |
+| updated_at | timestamp | | | | |
+
+#### 2. profiles テーブル (プロフィール詳細)
+
+| カラム名 | 型 | PK | UNIQUE | NOT NULL | FK (外部キー) |
+|---|---|:---:|:---:|:---:|---|
+| id | unsigned bigint | ○ | | ○ | |
+| user_id | unsigned bigint | | | ○ | users(id) |
+| zipcode | string | | | ○ | |
+| address | string | | | ○ | |
+| building_name | string | | | | |
+| avatar_url | text | | | | |
+| created_at | timestamp | | | | |
+| updated_at | timestamp | | | | |
+
+#### 3. items テーブル (商品情報)
+
+| カラム名 | 型 | PK | UNIQUE | NOT NULL | FK (外部キー) |
+|---|---|:---:|:---:|:---:|---|
+| id | unsigned bigint | ○ | | ○ | |
+| user_id | unsigned bigint | | | ○ | users(id) |
+| name | string | | | ○ | |
+| price | integer | | | ○ | |
+| description | text | | | ○ | |
+| img_url | text | | | ○ | |
+| brand_name | string | | | | |
+| condition_id | unsigned bigint | | | ○ | conditions(id) |
+| created_at | timestamp | | | | |
+| updated_at | timestamp | | | | |
+
+#### 4. categories テーブル (カテゴリー)
+
+| カラム名 | 型 | PK | UNIQUE | NOT NULL | FK (外部キー) |
+|---|---|:---:|:---:|:---:|---|
+| id | unsigned bigint | ○ | | ○ | |
+| content | string | | | ○ | |
+| created_at | timestamp | | | | |
+| updated_at | timestamp | | | | |
+
+#### 5. conditions テーブル (商品状態)
+
+| カラム名 | 型 | PK | UNIQUE | NOT NULL | FK (外部キー) |
+|---|---|:---:|:---:|:---:|---|
+| id | unsigned bigint | ○ | | ○ | |
+| content | string | | | ○ | |
+| created_at | timestamp | | | | |
+| updated_at | timestamp | | | | |
+
+#### 6. purchases テーブル (購入履歴)
+
+| カラム名 | 型 | PK | UNIQUE | NOT NULL | FK (外部キー) |
+|---|---|:---:|:---:|:---:|---|
+| id | unsigned bigint | ○ | | ○ | |
+| user_id | unsigned bigint | | | ○ | users(id) |
+| item_id | unsigned bigint | | | ○ | items(id) |
+| payment_method | string | | | ○ | |
+| shipping_postal_code | string | | | ○ | |
+| shipping_address | string | | | ○ | |
+| shipping_building_name | string | | | | |
+| created_at | timestamp | | | | |
+| updated_at | timestamp | | | | |
+
+#### 7. likes テーブル (いいね)
+
+| カラム名 | 型 | PK | UNIQUE | NOT NULL | FK (外部キー) |
+|---|---|:---:|:---:|:---:|---|
+| id | unsigned bigint | ○ | | ○ | |
+| user_id | unsigned bigint | | | ○ | users(id) |
+| item_id | unsigned bigint | | | ○ | items(id) |
+| created_at | timestamp | | | | |
+| updated_at | timestamp | | | | |
+
+#### 8. comments テーブル (コメント)
+
+| カラム名 | 型 | PK | UNIQUE | NOT NULL | FK (外部キー) |
+|---|---|:---:|:---:|:---:|---|
+| id | unsigned bigint | ○ | | ○ | |
+| item_id | unsigned bigint | | | ○ | items(id) |
+| content | string | | | ○ | |
+| created_at | timestamp | | | | |
+| user_id | unsigned bigint | | | ○ | users(id) |
+| updated_at | timestamp | | | | |
+
+#### 9. category_item テーブル (中間テーブル)
+
+| カラム名 | 型 | PK | UNIQUE | NOT NULL | FK (外部キー) |
+|---|---|:---:|:---:|:---:|---|
+| id | unsigned bigint | ○ | | ○ | |
+| item_id | unsigned bigint | | | ○ | items(id) |
+| category_id | unsigned bigint | | | ○ | categories(id) |
+| created_at | timestamp | | | | |
+| updated_at | timestamp | | | | |
+
+### 🗂 ER図（このプロジェクトのデータ構造）
+
+このアプリケーションのデータ構造を視覚的に把握するため、以下にER図を掲載しています。
+
+この図では、`items`（商品）テーブルと `users`（ユーザー）テーブルを中心に構成されています。
+ユーザーが商品を出品し、ユーザーが商品を購入するという関係性から、`users` と `items`、および `users` と `purchases` はそれぞれ「1対多」のリレーションで接続されています。
+また、1つの商品に複数のカテゴリーを設定できるよう、`items` と `categories` は中間テーブル（`category_item`）を介した「多対多」の関係となっています。
+
+![ER図](assets/coachtech-furima-er.png)
+
+※ 補足：
+1. 図は draw.io（diagrams.net）にて作成し、PNG形式で保存しています。
+2. 元データは `coachtech-furima-er.drawio` にて編集可能です。
+3. PNGファイルは `assets/coachtech-furima-er.png` に保存されています。
+   → READMEではこの画像を参照しています。
+4. 編集には [draw.io（diagrams.net）](https://app.diagrams.net/) を使用してください。
+　 ローカルアプリまたはブラウザ版のどちらでも編集可能です。
+5. ER図の更新手順：drawioで編集 → PNG再出力 → assetsに上書き保存 → README確認
+   ※GitHub上で画像が更新されない場合は、キャッシュをクリアしてください。
+
