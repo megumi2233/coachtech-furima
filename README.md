@@ -124,6 +124,8 @@ php artisan storage:link
 - `resources/views/auth/register.blade.php`（会員登録画面）
 - `resources/views/auth/login.blade.php`（ログイン画面）
  src/resources/views/auth/ verify.blade.php　メール認証画面
+src/resources/views/index.blade.php　商品一覧画面
+src/resources/views/item/show.blade.php　商品詳細
 ---
 
 ### 🎨 CSS ファイルの作成
@@ -136,6 +138,8 @@ php artisan storage:link
 src/public/css/register.css　会員登録画面専用のCSSファイル
 src/public/css/login.css　ログイン画面専用の CSS
 src/public/css/verify.css　メール認証画面専用の CSS
+src/public/css/index.css　商品一覧画面専用の CSS
+src/public/css/item.css　商品詳細
 ---
 
 ### 🛠 使用技術（この例で使われている環境）
