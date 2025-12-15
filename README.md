@@ -118,7 +118,7 @@ php artisan storage:link
 
 #### 共通レイアウト
 - resources/views/layouts/auth.blade.php（会員登録・ログイン・認証用の共通レイアウト
-- src/resources/views/layouts/app.blade.php　メイン用の共通レイアウト、トップページや商品詳細ページ
+- src/resources/views/layouts/app.blade.php　メイン用の共通レイアウト、上記の３つの画面以外の画面）
 
 #### 会員登録・認証関連
 - `resources/views/auth/register.blade.php`（会員登録画面）
@@ -133,7 +133,7 @@ src/resources/views/item/show.blade.php　商品詳細
 #### 共通レイアウト
 - public/css/sanitize.css（リセットCSS）
 - public/css/auth.css（会員登録・ログイン・認証用の共通スタイル）
-- src/public/css/common.css　メイン用の共通レイアウト、トップページや商品詳細ページ
+- src/public/css/common.css　メイン用の共通レイアウト、上記の３つの画面以外の画面
 
 src/public/css/register.css　会員登録画面専用のCSSファイル
 src/public/css/login.css　ログイン画面専用の CSS
