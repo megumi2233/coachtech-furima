@@ -104,7 +104,7 @@ php artisan db:seed
 
 #### 8. ストレージのシンボリックリンク作成
 
-商品画像やプロフィール画像を storage/app/public から公開ディレクトリに表示できるようにするため、以下のコマンドを実行します。
+商品画像やプロフィール画像など、ユーザーがアップロードしたファイルを公開するために、シンボリックリンクを作成します。
 
 このコマンドも **php コンテナ内のプロジェクトルート**で実行してください。
 
@@ -131,10 +131,8 @@ php artisan storage:link
 - public/css/sanitize.css（リセットCSS）
 - public/css/auth.css（会員登録・ログイン・認証用の共通スタイル）
 
-
-
 src/public/css/register.css　会員登録画面専用のCSSファイル
-
+src/public/css/login.css　ログイン画面専用の CSS
 ---
 
 ### 🛠 使用技術（この例で使われている環境）
