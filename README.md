@@ -127,6 +127,8 @@ php artisan storage:link
 src/resources/views/index.blade.php　商品一覧画面
 src/resources/views/item/show.blade.php　商品詳細
 src/resources/views/purchase/show.blade.php 商品購入画面
+src/resources/views/mypage/profile.blade.php　プロフィール画面
+src/resources/views/mypage/edit.blade.php　プロフィール編集画面
 ---
 
 ### 🎨 CSS ファイルの作成
