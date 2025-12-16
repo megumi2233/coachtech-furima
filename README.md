@@ -144,6 +144,8 @@ src/public/css/verify.css　メール認証画面専用の CSS
 src/public/css/index.css　商品一覧画面専用の CSS
 src/public/css/item.css　商品詳細
 src/public/css/purchase.css 商品購入画面
+src/public/css/profile.css　プロフィール画面
+src/public/css/profile_edit.css　プロフィール編集画面
 ---
 
 ### 🛠 使用技術（この例で使われている環境）
