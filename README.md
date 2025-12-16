@@ -126,6 +126,7 @@ php artisan storage:link
  src/resources/views/auth/ verify.blade.php　メール認証画面
 src/resources/views/index.blade.php　商品一覧画面
 src/resources/views/item/show.blade.php　商品詳細
+src/resources/views/purchase/show.blade.php 商品購入画面
 ---
 
 ### 🎨 CSS ファイルの作成
@@ -140,6 +141,7 @@ src/public/css/login.css　ログイン画面専用の CSS
 src/public/css/verify.css　メール認証画面専用の CSS
 src/public/css/index.css　商品一覧画面専用の CSS
 src/public/css/item.css　商品詳細
+src/public/css/purchase.css 商品購入画面
 ---
 
 ### 🛠 使用技術（この例で使われている環境）
