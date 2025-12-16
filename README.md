@@ -127,8 +127,10 @@ php artisan storage:link
 src/resources/views/index.blade.php　商品一覧画面
 src/resources/views/item/show.blade.php　商品詳細
 src/resources/views/purchase/show.blade.php 商品購入画面
+src/resources/views/purchase/address.blade.php　送付先住所変更画面　まだつくっていない
 src/resources/views/mypage/profile.blade.php　プロフィール画面
 src/resources/views/mypage/edit.blade.php　プロフィール編集画面
+src/resources/views/item/create.blade.php　商品出品画面
 ---
 
 ### 🎨 CSS ファイルの作成
@@ -144,8 +146,10 @@ src/public/css/verify.css　メール認証画面専用の CSS
 src/public/css/index.css　商品一覧画面専用の CSS
 src/public/css/item.css　商品詳細
 src/public/css/purchase.css 商品購入画面
+　　　　　　　　　　　　　　　送付先住所変更画面　まだつくっていない
 src/public/css/profile.css　プロフィール画面
 src/public/css/profile_edit.css　プロフィール編集画面
+src/public/css/sell.css　商品出品画面
 ---
 
 ### 🛠 使用技術（この例で使われている環境）
