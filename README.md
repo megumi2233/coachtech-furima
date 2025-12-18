@@ -147,7 +147,7 @@ src/public/css/verify.css　メール認証画面専用の CSS
 src/public/css/index.css　商品一覧画面専用の CSS
 src/public/css/item.css　商品詳細
 src/public/css/purchase.css 商品購入画面
-　　　　　　　　　　　　　　　送付先住所変更画面　まだつくっていない
+src/public/css/address.css　送付先住所変更画面　
 src/public/css/profile.css　プロフィール画面
 src/public/css/profile_edit.css　プロフィール編集画面
 src/public/css/sell.css　商品出品画面
