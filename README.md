@@ -104,7 +104,8 @@ php artisan db:seed
 
 #### 8. ストレージのシンボリックリンク作成
 
-商品画像やプロフィール画像を storage/app/public から公開ディレクトリに表示できるようにするため、以下のコマンドを実行します。
+商品画像やプロフィール画像など、ユーザーがアップロードしたファイルを公開するために、シンボリックリンクを作成します。
+（※これを行わないと、出品した商品画像やプロフィール画像が表示されません）
 
 このコマンドも **php コンテナ内のプロジェクトルート**で実行してください。
 
@@ -112,6 +113,44 @@ php artisan db:seed
 php artisan storage:link
 ```
 
+---
+
+### 🧩 View ファイルの作成
+
+#### 共通レイアウト
+- resources/views/layouts/auth.blade.php（会員登録・ログイン・認証用の共通レイアウト
+- src/resources/views/layouts/app.blade.php　メイン用の共通レイアウト、上記の３つの画面以外の画面）
+
+#### 会員登録・認証関連
+- `resources/views/auth/register.blade.php`（会員登録画面）
+- `resources/views/auth/login.blade.php`（ログイン画面）
+ src/resources/views/auth/ verify.blade.php　メール認証画面
+src/resources/views/index.blade.php　商品一覧画面
+src/resources/views/item/show.blade.php　商品詳細
+src/resources/views/purchase/show.blade.php 商品購入画面
+src/resources/views/purchase/address.blade.php　送付先住所変更画面　まだつくっていない
+src/resources/views/mypage/profile.blade.php　プロフィール画面
+src/resources/views/mypage/edit.blade.php　プロフィール編集画面
+src/resources/views/item/create.blade.php　商品出品画面
+---
+
+### 🎨 CSS ファイルの作成
+
+#### 共通レイアウト
+- public/css/sanitize.css（リセットCSS）
+- public/css/auth.css（会員登録・ログイン・認証用の共通スタイル）
+- src/public/css/common.css　メイン用の共通レイアウト、上記の３つの画面以外の画面
+
+src/public/css/register.css　会員登録画面専用のCSSファイル
+src/public/css/login.css　ログイン画面専用の CSS
+src/public/css/verify.css　メール認証画面専用の CSS
+src/public/css/index.css　商品一覧画面専用の CSS
+src/public/css/item.css　商品詳細
+src/public/css/purchase.css 商品購入画面
+src/public/css/address.css　送付先住所変更画面　
+src/public/css/profile.css　プロフィール画面
+src/public/css/profile_edit.css　プロフィール編集画面
+src/public/css/sell.css　商品出品画面
 ---
 
 ### 🛠 使用技術（この例で使われている環境）
@@ -232,6 +271,8 @@ php artisan storage:link
 | created_at | timestamp | | | | |
 | updated_at | timestamp | | | | |
 
+---
+
 ### 🗂 ER図（このプロジェクトのデータ構造）
 
 このアプリケーションのデータ構造を視覚的に把握するため、以下にER図を掲載しています。
@@ -251,4 +292,16 @@ php artisan storage:link
 　 ローカルアプリまたはブラウザ版のどちらでも編集可能です。
 5. ER図の更新手順：drawioで編集 → PNG再出力 → assetsに上書き保存 → README確認
    ※GitHub上で画像が更新されない場合は、キャッシュをクリアしてください。
+
+---
+
+## デザイン・レイアウトに関する注記
+
+**プルダウン（セレクトボックス）の表示について**
+以下の画面におけるプルダウン選択時の表示について、設計書（Mac環境）では選択肢に「チェックマーク（✓）」が表示されていますが、本環境（Windows）および標準的なブラウザの仕様に準拠し、OS標準のスタイル（背景色の変化のみ）を採用しています。
+
+* **商品出品画面：** 「商品の状態」の選択
+* **商品購入画面：** 「支払い方法」の選択
+
+※無理なスタイル変更によるスマホ等でのレイアウト崩れを防ぐため、HTML標準の `<select>` タグの挙動を優先しています。
 
