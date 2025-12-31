@@ -118,39 +118,57 @@ php artisan storage:link
 ### 🧩 View ファイルの作成
 
 #### 共通レイアウト
-- resources/views/layouts/auth.blade.php（会員登録・ログイン・認証用の共通レイアウト
-- src/resources/views/layouts/app.blade.php　メイン用の共通レイアウト、上記の３つの画面以外の画面）
+- `src/resources/views/layouts/auth.blade.php`
+  - 会員登録・ログイン・認証用の共通レイアウト
+- `src/resources/views/layouts/app.blade.php`
+  - メイン用の共通レイアウト（認証画面以外の画面）
 
 #### 会員登録・認証関連
-- `resources/views/auth/register.blade.php`（会員登録画面）
-- `resources/views/auth/login.blade.php`（ログイン画面）
- src/resources/views/auth/ verify.blade.php　メール認証画面
-src/resources/views/index.blade.php　商品一覧画面
-src/resources/views/item/show.blade.php　商品詳細
-src/resources/views/purchase/show.blade.php 商品購入画面
-src/resources/views/purchase/address.blade.php　送付先住所変更画面　まだつくっていない
-src/resources/views/mypage/profile.blade.php　プロフィール画面
-src/resources/views/mypage/edit.blade.php　プロフィール編集画面
-src/resources/views/item/create.blade.php　商品出品画面
+- `src/resources/views/auth/register.blade.php` : 会員登録画面
+- `src/resources/views/auth/login.blade.php` : ログイン画面
+- `src/resources/views/auth/verify.blade.php` : メール認証画面
+
+#### 商品関連
+- `src/resources/views/index.blade.php` : 商品一覧画面
+- `src/resources/views/item/show.blade.php` : 商品詳細画面
+- `src/resources/views/item/create.blade.php` : 商品出品画面
+
+#### 購入関連
+- `src/resources/views/purchase/show.blade.php` : 商品購入画面
+- `src/resources/views/purchase/address.blade.php` : 送付先住所変更画面（※作成中）
+
+#### マイページ・プロフィール
+- `src/resources/views/mypage/profile.blade.php` : プロフィール画面
+- `src/resources/views/mypage/edit.blade.php` : プロフィール編集画面
+
 ---
 
 ### 🎨 CSS ファイルの作成
 
-#### 共通レイアウト
-- public/css/sanitize.css（リセットCSS）
-- public/css/auth.css（会員登録・ログイン・認証用の共通スタイル）
-- src/public/css/common.css　メイン用の共通レイアウト、上記の３つの画面以外の画面
+#### 共通スタイル
+- `src/public/css/sanitize.css` : リセットCSS
+- `src/public/css/auth.css` : 会員登録・ログイン・認証用の共通スタイル
+- `src/public/css/common.css` : メイン用の共通スタイル
 
-src/public/css/register.css　会員登録画面専用のCSSファイル
-src/public/css/login.css　ログイン画面専用の CSS
-src/public/css/verify.css　メール認証画面専用の CSS
-src/public/css/index.css　商品一覧画面専用の CSS
-src/public/css/item.css　商品詳細
-src/public/css/purchase.css 商品購入画面
-src/public/css/address.css　送付先住所変更画面　
-src/public/css/profile.css　プロフィール画面
-src/public/css/profile_edit.css　プロフィール編集画面
-src/public/css/sell.css　商品出品画面
+#### 各画面専用スタイル
+- **認証関連**
+  - `src/public/css/register.css` : 会員登録画面
+  - `src/public/css/login.css` : ログイン画面
+  - `src/public/css/verify.css` : メール認証画面
+
+- **商品関連**
+  - `src/public/css/index.css` : 商品一覧画面
+  - `src/public/css/item.css` : 商品詳細画面
+  - `src/public/css/sell.css` : 商品出品画面
+
+- **購入関連**
+  - `src/public/css/purchase.css` : 商品購入画面
+  - `src/public/css/address.css` : 送付先住所変更画面
+
+- **マイページ関連**
+  - `src/public/css/profile.css` : プロフィール画面
+  - `src/public/css/profile_edit.css` : プロフィール編集画面
+    
 ---
 
 ### 🛠 使用技術（この例で使われている環境）
@@ -295,7 +313,20 @@ src/public/css/sell.css　商品出品画面
 
 ---
 
-## デザイン・レイアウトに関する注記
+### 📦 ダミーデータについて
+商品ダミーデータを作成するために、出品者となるユーザーデータ（テストユーザー）も同時に作成するように実装しました。
+
+#### テストユーザー情報（動作確認用）
+
+```ini
+email: test@example.com
+password: password123
+```
+※シーディング実行後、上記のアカウントでログインすることで、ダミー商品データの表示やマイページ機能などの動作確認がすぐに可能です。
+
+---
+
+### 🎨 デザイン・レイアウトに関する注記
 
 **プルダウン（セレクトボックス）の表示について**
 以下の画面におけるプルダウン選択時の表示について、設計書（Mac環境）では選択肢に「チェックマーク（✓）」が表示されていますが、本環境（Windows）および標準的なブラウザの仕様に準拠し、OS標準のスタイル（背景色の変化のみ）を採用しています。
