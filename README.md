@@ -312,6 +312,7 @@ php artisan storage:link
 　 ローカルアプリまたはブラウザ版のどちらでも編集可能です。
   
 5. ER図の更新手順：drawioで編集 → PNG再出力 → assetsに上書き保存 → README確認
+
    ※GitHub上で画像が更新されない場合は、キャッシュをクリアしてください。
 
 ---
