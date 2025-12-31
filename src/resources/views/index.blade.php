@@ -7,12 +7,12 @@
 @section('content')
 <div class="product-list">
     <div class="product-list__header">
-        <a href="/?tab=recommend" class="tab {{ !request('tab') || request('tab') == 'recommend' ? 'active' : '' }}">
-            おすすめ
-        </a>
-        <a href="/?tab=mylist" class="tab {{ request('tab') == 'mylist' ? 'active' : '' }}">
-            マイリスト
-        </a>
+        <a href="/?tab=recommend&keyword={{ request('keyword') }}" class="tab {{ !request('tab') || request('tab') == 'recommend' ? 'active' : '' }}">
+    おすすめ
+</a>
+<a href="/?tab=mylist&keyword={{ request('keyword') }}" class="tab {{ request('tab') == 'mylist' ? 'active' : '' }}">
+    マイリスト
+</a>
     </div>
 
     <div class="product-list__content">

@@ -17,10 +17,10 @@
                 <img src="{{ asset('images/logo.png') }}" alt="COACHTECH" class="header__logo-img">
             </a>
 
-            <form class="header__search" action="/search" method="get">
-                @csrf
-                <input class="search__input" type="text" name="keyword" placeholder="なにをお探しですか？">
-            </form>
+            <form class="header__search" action="/" method="get">
+    @csrf
+    <input class="search__input" type="text" name="keyword" value="{{ request('keyword') }}" placeholder="なにをお探しですか？">
+</form>
 
             <nav class="header__nav">
                 <ul class="header__nav-list">
