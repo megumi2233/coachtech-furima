@@ -1,0 +1,211 @@
+/* purchase.css - 商品購入画面 */
+
+.purchase-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.purchase-form {
+    display: flex;
+    justify-content: space-between;
+    gap: 80px;
+}
+
+.purchase-left {
+    width: 60%;
+}
+
+.purchase-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #000;
+    margin-bottom: 30px;
+}
+
+.purchase-item__image .item-dummy-img {
+    width: 100px;
+    height: 100px;
+    background-color: #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    color: #000;
+}
+
+.purchase-item__name {
+    font-size: 24px;
+    margin: 0 0 10px;
+    font-weight: bold;
+}
+
+.purchase-item__price {
+    font-size: 20px;
+    font-weight: normal;
+    margin: 0;
+}
+
+.purchase-section {
+    padding-bottom: 30px;
+    border-bottom: 1px solid #000;
+    margin-bottom: 30px;
+}
+
+/* 以前ここにあった謎の「/」を削除しました */
+
+.purchase-section:last-child {
+    border-bottom: 1px solid #000;
+}
+
+.purchase-section__title {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0 0 20px;
+}
+
+/* ▼▼▼ ここを修正しました！ ▼▼▼ */
+.payment-select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    /* 閉じている時は白 */
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    /* ラベルとの間隔を追加 */
+}
+
+/* ▼▼▼ これを追加しました！ ▼▼▼ */
+.payment-select option {
+    background-color: #333;
+    /* 背景を濃いグレー（黒）に */
+    color: #fff;
+    /* 文字を白に */
+    padding: 10px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.section-header .purchase-section__title {
+    margin: 0;
+}
+
+.address-change-link {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.address-info p {
+    margin: 5px 0;
+    line-height: 1.6;
+}
+
+.purchase-right {
+    width: 40%;
+}
+
+.summary-box {
+    border: 1px solid #000;
+    background-color: #fff;
+    margin-bottom: 20px;
+    padding: 0;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+    border-bottom: 1px solid #000;
+    margin: 0;
+}
+
+.summary-row:last-of-type {
+    border-bottom: none;
+}
+
+.summary-label {
+    font-weight: normal;
+}
+
+.summary-price,
+.summary-value {
+    font-weight: normal;
+}
+
+.purchase-button {
+    width: 100%;
+    padding: 15px;
+    background-color: #ff5555;
+    color: #fff;
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+.purchase-button:hover {
+    opacity: 0.8;
+}
+
+@media screen and (max-width: 768px) {
+    .purchase-container {
+        padding: 20px;
+    }
+
+    .purchase-form {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .purchase-left,
+    .purchase-right {
+        width: 100%;
+    }
+
+    .purchase-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .purchase-item__image {
+        width: 100%;
+    }
+
+    .purchase-item__image .item-dummy-img {
+        width: 100%;
+        height: 180px;
+        font-size: 20px;
+    }
+
+    .purchase-item__info {
+        width: 100%;
+    }
+
+    .purchase-item__name {
+        font-size: 24px;
+    }
+
+    .purchase-item__price {
+        font-size: 20px;
+    }
+
+    .purchase-section {
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+    }
+}

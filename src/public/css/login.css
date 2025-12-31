@@ -1,0 +1,71 @@
+/* login.css - ログイン画面専用のスタイル */
+
+.login-form {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 400px; 
+    padding: 50px 0;  
+}
+
+.main__title {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.form__group {
+    margin-bottom: 20px;
+}
+
+.form__label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.form__input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; 
+    appearance: none;
+    font-size: 16px;
+}
+
+.form__error {
+    color: #ff0000;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+
+.form__button {
+    width: 100%;
+    padding: 12px;
+    background-color: #ff5555;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+.form__button:hover {
+    background-color: #ff3333;
+}
+
+.login__link {
+    margin-top: 20px;
+    text-align: center; 
+}
+
+.link__text {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 14px;
+}

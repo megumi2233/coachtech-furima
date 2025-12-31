@@ -1,0 +1,44 @@
+/* verify.css - メール認証画面専用のスタイル */
+
+.verify-content {
+    text-align: center;
+    width: 100%;
+}
+
+.verify-content__text {
+    font-size: 14px;
+    margin-bottom: 40px;
+    line-height: 1.6;
+    font-weight: bold;
+    color: #000;
+}
+
+.verify-button {
+    display: inline-block;
+    background-color: #dddddd;
+    color: #333;
+    text-decoration: none;
+    padding: 10px 30px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.verify-button:hover {
+    background-color: #cccccc;
+}
+
+.verify-content__button {
+    margin-bottom: 30px;
+}
+
+.verify-content__link {
+    font-size: 14px;
+}
+
+.main__inner {
+    max-width: 600px;
+}
