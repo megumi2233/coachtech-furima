@@ -305,10 +305,14 @@ php artisan storage:link
 1. 図は draw.io（diagrams.net）にて作成し、PNG形式で保存しています。
 2. 元データは `coachtech-furima-er.drawio` にて編集可能です。
 3. PNGファイルは `assets/coachtech-furima-er.png` に保存されています。
+
    → READMEではこの画像を参照しています。
 4. 編集には [draw.io（diagrams.net）](https://app.diagrams.net/) を使用してください。
-　 ローカルアプリまたはブラウザ版のどちらでも編集可能です。
+
+　 　ローカルアプリまたはブラウザ版のどちらでも編集可能です。
+  
 5. ER図の更新手順：drawioで編集 → PNG再出力 → assetsに上書き保存 → README確認
+
    ※GitHub上で画像が更新されない場合は、キャッシュをクリアしてください。
 
 ---
