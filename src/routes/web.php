@@ -47,3 +47,6 @@ Route::post('/mypage/profile', [ProfileController::class, 'update'])->name('mypa
 
 // ▼▼▼ Task 44: 商品一覧画面（トップページ）の設定 ▼▼▼
 Route::get('/', [ItemController::class, 'index'])->name('root');
+
+// 商品詳細画面を表示する
+Route::get('/item/{item_id}', [ItemController::class, 'show'])->name('item.show');

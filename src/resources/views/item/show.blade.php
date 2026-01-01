@@ -7,36 +7,33 @@
 @section('content')
     <div class="item-detail">
         <div class="item-detail__image">
-            <div class="item-dummy-img">商品画像</div>
+            <img src="{{ asset('storage/' .$item->img_url) }}" alt="{{ $item->name }}" class="item-detail__img">
         </div>
 
         <div class="item-detail__info">
-            <h2 class="item-detail__name">商品名がここに入ります</h2>
-            <p class="item-detail__brand">ブランド名</p>
-            <p class="item-detail__price">¥47,000 <span class="tax">(税込)</span></p>
+            <h2 class="item-detail__name">{{ $item->name }}</h2>
+            <p class="item-detail__brand">{{ $item->brand_name }}</p>
+            <p class="item-detail__price">¥{{ number_format($item->price) }} <span class="tax">(税込)</span></p>
 
             <div class="item-detail__reaction">
                 <div class="reaction-item">
                     <img class="reaction-icon" src="{{ asset('images/like.png') }}" alt="いいね">
-                    <span class="reaction-count">3</span>
+                    <span class="reaction-count">{{ $item->likes->count() }}</span>
                 </div>
                 <div class="reaction-item">
                     <img class="reaction-icon" src="{{ asset('images/comment.png') }}" alt="コメント">
-                    <span class="reaction-count">1</span>
+                    <span class="reaction-count">{{ $item->comments->count() }}</span>
                 </div>
             </div>
 
-            <form action="/purchase/1" method="get">
+            <form action="/purchase/{{ $item->id }}" method="get">
                 <button class="item-detail__button" type="submit">購入手続きへ</button>
             </form>
 
             <div class="item-detail__description">
                 <h3>商品説明</h3>
                 <p class="description-text">
-                    カラー：グレー<br>
-                    新品<br>
-                    商品の状態は良好です。傷もありません。<br>
-                    購入後、即発送いたします。
+                    {{ $item->description }}
                 </p>
             </div>
 
@@ -45,27 +42,33 @@
                 <div class="meta-row">
                     <span class="meta-label">カテゴリー</span>
                     <div class="meta-tags">
-                        <span class="meta-tag">洋服</span>
-                        <span class="meta-tag">メンズ</span>
+                        @foreach($item->categories as $category)
+                            <span class="meta-tag">{{ $category->content }}</span>
+                        @endforeach
                     </div>
                 </div>
                 <div class="meta-row">
                     <span class="meta-label">商品の状態</span>
-                    <span class="meta-value">良好</span>
+                    <span class="meta-value">{{ $item->condition->content }}</span>
                 </div>
             </div>
 
             <div class="item-detail__comment">
-                <h3>コメント (1)</h3>
+                <h3>コメント ({{ $item->comments->count() }})</h3>
 
+                @foreach($item->comments as $comment)
                 <div class="comment-item">
                     <div class="comment-user">
-                        <div class="user-icon"></div> <span class="user-name">admin</span>
+                        <div class="user-icon">
+                            <img src="{{ $comment->user->avatar_url ?? asset('images/default-avatar.png') }}" alt="" class="user-icon-img">
+                        </div>
+                        <span class="user-name">{{ $comment->user->name }}</span>
                     </div>
                     <div class="comment-body">
-                        こちらはコメントが入ります。
+                        {{ $comment->content }}
                     </div>
                 </div>
+                @endforeach
 
                 <div class="comment-form">
                     <h3>商品へのコメント</h3>

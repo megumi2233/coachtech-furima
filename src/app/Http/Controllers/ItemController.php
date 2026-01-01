@@ -41,4 +41,15 @@ class ItemController extends Controller
 
         return view('index', compact('items'));
     }
+
+    // ... indexメソッドの閉じカッコ「}」の後ろに追加 ...
+
+    public function show($item_id)
+    {
+        // findOrFail を使う（見つからなければ自動で404画面になる）
+        // さっきの if文 や redirect は消します
+        $item = Item::findOrFail($item_id);
+
+        return view('item.show', compact('item'));
+    }
 }
