@@ -38,14 +38,43 @@
     font-size: 16px;
 }
 
+/* ▼▼▼ ここを変更・追加したよ！ ▼▼▼ */
 .image-upload-area {
     border: 1px dashed #ccc;
-    height: 200px;
+    height: 300px;
+    /* 👈 画像が見やすいように少し高くしたよ */
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #fff;
+    position: relative;
+    /* 👈 追加：画像を重ねるための基準 */
+    overflow: hidden;
+    /* 👈 追加：画像がはみ出さないように */
+    cursor: pointer;
+    /* 👈 追加：クリックできることがわかるように */
 }
+
+/* ファイル選択ボタン（input）は隠す */
+.file-input {
+    display: none;
+}
+
+/* プレビュー画像（枠いっぱいに表示！） */
+.preview-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    /* 画像全体が見えるように */
+    position: absolute;
+    /* ボタンの上に重ねる */
+    top: 0;
+    left: 0;
+    z-index: 10;
+    /* ボタンより手前に表示 */
+}
+
+/* ▲▲▲ ここまで変更・追加 ▲▲▲ */
 
 .upload-btn {
     border: 2px solid var(--main-color);
@@ -69,12 +98,14 @@
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 .category-label {
     display: inline-block;
     padding: 6px 15px;
-    border: 1px solid var(--main-color);
+    border: 2px solid var(--main-color);
     color: var(--main-color);
     border-radius: 20px;
     font-size: 14px;
@@ -161,6 +192,13 @@ select.form-control option {
     opacity: 0.8;
 }
 
+.error-message {
+    color: #ff0000;
+    font-size: 14px;
+    margin-top: 5px;
+    font-weight: bold;
+}
+
 @media screen and (max-width: 768px) {
     .sell-container {
         padding: 20px;
@@ -178,7 +216,8 @@ select.form-control option {
     }
 
     .image-upload-area {
-        height: 150px;
+        height: 200px;
+        /* スマホでは少し小さめに */
     }
 
     .upload-btn {

@@ -7,7 +7,7 @@
 @section('content')
     <div class="item-detail">
         <div class="item-detail__image">
-            <img src="{{ asset('storage/' .$item->img_url) }}" alt="{{ $item->name }}" class="item-detail__img">
+            <img src="{{ asset('storage/' . $item->img_url) }}" alt="{{ $item->name }}" class="item-detail__img">
         </div>
 
         <div class="item-detail__info">
@@ -17,7 +17,16 @@
 
             <div class="item-detail__reaction">
                 <div class="reaction-item">
-                    <img class="reaction-icon" src="{{ asset('images/like.png') }}" alt="いいね">
+                    <form method="POST" action="{{ route('item.like', ['item_id' => $item->id]) }}">
+                        @csrf
+                        <button type="submit" class="reaction-btn">
+                            @if (Auth::check() && $item->likes->contains('user_id', Auth::id()))
+                                <img class="reaction-icon active" src="{{ asset('images/like.png') }}" alt="いいね">
+                            @else
+                                <img class="reaction-icon" src="{{ asset('images/like.png') }}" alt="いいね">
+                            @endif
+                        </button>
+                    </form>
                     <span class="reaction-count">{{ $item->likes->count() }}</span>
                 </div>
                 <div class="reaction-item">
@@ -42,7 +51,7 @@
                 <div class="meta-row">
                     <span class="meta-label">カテゴリー</span>
                     <div class="meta-tags">
-                        @foreach($item->categories as $category)
+                        @foreach ($item->categories as $category)
                             <span class="meta-tag">{{ $category->content }}</span>
                         @endforeach
                     </div>
@@ -56,24 +65,32 @@
             <div class="item-detail__comment">
                 <h3>コメント ({{ $item->comments->count() }})</h3>
 
-                @foreach($item->comments as $comment)
-                <div class="comment-item">
-                    <div class="comment-user">
-                        <div class="user-icon">
-                            <img src="{{ $comment->user->avatar_url ?? asset('images/default-avatar.png') }}" alt="" class="user-icon-img">
+                @foreach ($item->comments as $comment)
+                    <div class="comment-item">
+                        <div class="comment-user">
+                            <div class="user-icon">
+                                <div class="user-icon">
+                                    {{-- ▼▼▼ ここを修正！ ▼▼▼ --}}
+                                    <img src="{{ !empty($comment->user->profile?->avatar_url) ? asset('storage/' . $comment->user->profile->avatar_url) : asset('images/default-avatar.png') }}"
+                                        alt="" class="user-icon-img">
+                                </div>
+                            </div>
+                            <span class="user-name">{{ $comment->user->name }}</span>
                         </div>
-                        <span class="user-name">{{ $comment->user->name }}</span>
+                        <div class="comment-body">
+                            {{ $comment->content }}
+                        </div>
                     </div>
-                    <div class="comment-body">
-                        {{ $comment->content }}
-                    </div>
-                </div>
                 @endforeach
 
                 <div class="comment-form">
                     <h3>商品へのコメント</h3>
-                    <form action="" method="post">
+                    <form action="{{ route('item.comment', ['item_id' => $item->id]) }}" method="post">
                         @csrf
+                        @error('comment')
+                            <div class="error-message">{{ $message }}</div>
+                        @enderror
+
                         <textarea class="comment-input" name="comment" rows="5"></textarea>
                         <button class="comment-button" type="submit">コメントを送信する</button>
                     </form>

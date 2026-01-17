@@ -19,31 +19,53 @@
 .purchase-item {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 30px; /* 文字との間隔を少し広げたよ */
     padding-bottom: 30px;
     border-bottom: 1px solid #000;
     margin-bottom: 30px;
 }
 
-.purchase-item__image .item-dummy-img {
-    width: 100px;
-    height: 100px;
+/* ▼▼▼ 追加：画像の枠サイズを固定！ ▼▼▼ */
+.purchase-item__image {
+    width: 180px;  /* 横幅 */
+    height: 180px; /* 高さ */
+    background-color: #f0f0f0; /* 画像がない時の背景色 */
+    flex-shrink: 0; /* 画面が狭くなっても潰れないようにする */
+}
+
+/* ▼▼▼ 追加：本物の写真を枠にピッタリ合わせる！ ▼▼▼ */
+.purchase-item__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 枠に合わせてトリミング */
+    display: block;
+}
+
+/* ダミー画像用のスタイル（もし使うなら残しておく） */
+.item-dummy-img {
+    width: 100%;
+    height: 100%;
     background-color: #ddd;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 12px;
-    color: #000;
+    font-size: 14px;
+    color: #333;
+}
+
+.purchase-item__info {
+    flex: 1; /* 余ったスペースを使う */
 }
 
 .purchase-item__name {
-    font-size: 24px;
-    margin: 0 0 10px;
+    font-size: 30px; /* 少し大きくして見やすく */
+    margin: 0 0 15px;
     font-weight: bold;
+    line-height: 1.4;
 }
 
 .purchase-item__price {
-    font-size: 20px;
+    font-size: 24px;
     font-weight: normal;
     margin: 0;
 }
@@ -54,36 +76,32 @@
     margin-bottom: 30px;
 }
 
-/* 以前ここにあった謎の「/」を削除しました */
-
 .purchase-section:last-child {
     border-bottom: 1px solid #000;
 }
 
 .purchase-section__title {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: bold;
     margin: 0 0 20px;
 }
 
-/* ▼▼▼ ここを修正しました！ ▼▼▼ */
+/* 支払い方法のプルダウン */
 .payment-select {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     border: 1px solid #ccc;
     border-radius: 4px;
     background-color: #fff;
-    /* 閉じている時は白 */
     font-size: 16px;
     cursor: pointer;
     margin-top: 10px;
-    /* ラベルとの間隔を追加 */
 }
 
-/* ▼▼▼ これを追加しました！ ▼▼▼ */
+/* Windows版Chromeなどでも効くように設定するよ */
 .payment-select option {
     background-color: #333;
-    /* 背景を濃いグレー（黒）に */
+    /* 背景をダークグレーに */
     color: #fff;
     /* 文字を白に */
     padding: 10px;
@@ -103,15 +121,18 @@
 .address-change-link {
     color: #007bff;
     text-decoration: none;
-    font-size: 14px;
+    font-size: 15px;
     font-weight: bold;
 }
 
 .address-info p {
-    margin: 5px 0;
+    margin: 8px 0;
     line-height: 1.6;
+    font-size: 16px;
+    font-weight: bold;
 }
 
+/* 右側のエリア */
 .purchase-right {
     width: 40%;
 }
@@ -127,7 +148,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 30px;
+    padding: 25px;
     border-bottom: 1px solid #000;
     margin: 0;
 }
@@ -138,11 +159,13 @@
 
 .summary-label {
     font-weight: normal;
+    font-size: 16px;
 }
 
 .summary-price,
 .summary-value {
     font-weight: normal;
+    font-size: 20px;
 }
 
 .purchase-button {
@@ -161,6 +184,7 @@
     opacity: 0.8;
 }
 
+/* スマホ対応 */
 @media screen and (max-width: 768px) {
     .purchase-container {
         padding: 20px;
@@ -168,7 +192,7 @@
 
     .purchase-form {
         flex-direction: column;
-        gap: 30px;
+        gap: 40px;
     }
 
     .purchase-left,
@@ -178,22 +202,15 @@
 
     .purchase-item {
         flex-direction: column;
-        align-items: flex-start;
-        gap: 15px;
+        align-items: center; /* 画像を真ん中に */
+        text-align: center;
+        gap: 20px;
     }
 
+    /* スマホの時は画像を少し大きく */
     .purchase-item__image {
-        width: 100%;
-    }
-
-    .purchase-item__image .item-dummy-img {
-        width: 100%;
-        height: 180px;
-        font-size: 20px;
-    }
-
-    .purchase-item__info {
-        width: 100%;
+        width: 250px;
+        height: 250px;
     }
 
     .purchase-item__name {
@@ -201,11 +218,6 @@
     }
 
     .purchase-item__price {
-        font-size: 20px;
-    }
-
-    .purchase-section {
-        padding-bottom: 20px;
-        margin-bottom: 20px;
+        font-size: 22px;
     }
 }

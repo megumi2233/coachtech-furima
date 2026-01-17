@@ -35,6 +35,13 @@ body {
     display: block;
 }
 
+.header__logo img,
+.header img {
+    width: auto !important;
+    height: 28px;
+    object-fit: contain;
+}
+
 .header__search {
     flex-grow: 1;
     max-width: 400px;
@@ -63,6 +70,12 @@ body {
 
 .header__nav-item {
     margin-left: 30px;
+}
+
+.header__nav-item form {
+    display: flex;
+    align-items: center;
+    margin: 0;
 }
 
 .header__nav-link {
@@ -155,13 +168,3 @@ body {
     }
 }
 
-/* ヘッダーのロゴ画像の崩れを強制的に直す */
-.header__logo img,
-.header img {
-    /* 横幅いっぱいになるのを防ぐ */
-    width: auto !important;
-    /* デザイン通りの高さにする（元が28pxだったので合わせました） */
-    height: 28px;
-    /* 比率を保ったまま表示する */
-    object-fit: contain;
-}

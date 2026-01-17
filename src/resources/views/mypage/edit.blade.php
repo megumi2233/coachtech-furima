@@ -14,8 +14,8 @@
         <div class="profile-img-area">
             {{-- ▼ 画像があれば表示、なければグレーの円を表示 --}}
             <div class="current-icon">
-                @if(isset($profile->img_url))
-                    <img src="{{ asset('storage/' . $profile->img_url) }}" alt="プロフィール画像" class="profile-icon-img">
+                @if(isset($profile->avatar_url))
+                    <img src="{{ asset('storage/' . $profile->avatar_url) }}" alt="プロフィール画像" class="profile-icon-img">
                 @endif
             </div>
             
@@ -39,10 +39,10 @@
         </div>
 
         <div class="form-group">
-            <label for="postcode">郵便番号</label>
+            <label for="postal_code">郵便番号</label>
             {{-- ▼ nameを "postal_code" から "postcode" に修正しました！ --}}
-            <input type="text" id="postcode" name="postcode" value="{{ old('postcode', $profile->zipcode ?? '') }}">
-            @error('postcode')
+            <input type="text" id="postal_code" name="postal_code" value="{{ old('postal_code', $profile->zipcode ?? '') }}">
+            @error('postal_code')
                 <p class="error-message">{{ $message }}</p>
             @enderror
         </div>

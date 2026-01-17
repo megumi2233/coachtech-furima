@@ -5,6 +5,18 @@
     width: 100%;
 }
 
+/* ▼▼▼ 追加：再送メッセージ用のスタイル ▼▼▼ */
+.verify-content__alert {
+    color: #2d9d78;
+    /* 成功した感じの緑色 */
+    font-weight: bold;
+    /* 太文字 */
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* ▲▲▲ 追加ここまで ▲▲▲ */
+
 .verify-content__text {
     font-size: 14px;
     margin-bottom: 40px;

@@ -16,7 +16,8 @@ class ProfileRequest extends FormRequest
         return [
             'profile_image' => 'nullable|image|mimes:jpeg,png',
             'name'          => 'required|max:20',
-            'postcode'      => 'required|min:8|max:8', 
+            // ★ここを変更！min/maxをやめて、regex（正規表現）でハイフン必須にする
+            'postal_code'      => ['required', 'regex:/^[0-9]{3}-[0-9]{4}$/'], 
             'address'       => 'required',
             'building'      => 'nullable',
         ];
@@ -29,9 +30,9 @@ class ProfileRequest extends FormRequest
             'profile_image.mimes' => '画像はjpegまたはpng形式でアップロードしてください。',
             'name.required'       => 'ユーザー名を入力してください。',
             'name.max'            => 'ユーザー名は20文字以内で入力してください。',
-            'postcode.required'   => '郵便番号を入力してください。',
-            'postcode.min'        => '郵便番号はハイフンありの8文字で入力してください。',
-            'postcode.max'        => '郵便番号はハイフンありの8文字で入力してください。',
+            'postal_code.required'   => '郵便番号を入力してください。',
+            // ★ここを変更！min/maxのエラー文を消して、regex用を追加
+            'postal_code.regex'      => '郵便番号はハイフンありの8文字で入力してください。',
             'address.required'    => '住所を入力してください。',
         ];
     }
