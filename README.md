@@ -112,9 +112,9 @@ docker-compose exec php php artisan storage:link
 
 #### 共通レイアウト
 - `src/resources/views/layouts/auth.blade.php`
-  - 会員登録・ログイン・認証用の共通レイアウト
+  - 会員登録・ログイン・メール認証用の共通レイアウト
 - `src/resources/views/layouts/app.blade.php`
-  - メイン用の共通レイアウト（認証画面以外の画面）
+  - 商品一覧・詳細・マイページなど、アプリケーション全般のメインレイアウト
 
 #### 会員登録・認証関連
 - `src/resources/views/auth/register.blade.php` : 会員登録画面
@@ -128,11 +128,11 @@ docker-compose exec php php artisan storage:link
 
 #### 購入関連
 - `src/resources/views/purchase/show.blade.php` : 商品購入画面
-- `src/resources/views/purchase/address.blade.php` : 送付先住所変更画面（※作成中）
+- `src/resources/views/purchase/address.blade.php` : 送付先住所変更画面
 
 #### マイページ・プロフィール
-- `src/resources/views/mypage/profile.blade.php` : プロフィール画面
-- `src/resources/views/mypage/edit.blade.php` : プロフィール編集画面
+- `src/resources/views/mypage/profile.blade.php` : プロフィール画面（マイリスト）
+- `src/resources/views/mypage/edit.blade.php` : プロフィール設定・編集画面
 
 ---
 
@@ -140,8 +140,8 @@ docker-compose exec php php artisan storage:link
 
 #### 共通スタイル
 - `src/public/css/sanitize.css` : リセットCSS
-- `src/public/css/auth.css` : 会員登録・ログイン・認証用の共通スタイル
-- `src/public/css/common.css` : メイン用の共通スタイル
+- `src/public/css/auth.css` : 会員登録・ログイン・認証画面用の共通スタイル
+- `src/public/css/common.css` : ヘッダー等、アプリケーション全般で共有する共通スタイル
 
 #### 各画面専用スタイル
 - **認証関連**
@@ -159,8 +159,8 @@ docker-compose exec php php artisan storage:link
   - `src/public/css/address.css` : 送付先住所変更画面
 
 - **マイページ関連**
-  - `src/public/css/profile.css` : プロフィール画面
-  - `src/public/css/profile_edit.css` : プロフィール編集画面
+  - `src/public/css/profile.css` : プロフィール画面（マイリスト）
+  - `src/public/css/profile_edit.css` : プロフィール設定・編集画面
     
 ---
 
