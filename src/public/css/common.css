@@ -1,5 +1,3 @@
-/* common.css - アプリ全体の共通スタイル（トップページなど） */
-
 body {
     font-family: "Noto Sans JP", sans-serif;
     background-color: #fff;
@@ -17,7 +15,7 @@ body {
 
 .header__inner {
     width: 100%;
-    max-width: 1200px; 
+    max-width: 1200px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -167,4 +165,3 @@ body {
         max-width: 100%;
     }
 }
-

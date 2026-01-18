@@ -9,7 +9,7 @@ class ConditionsTableSeeder extends Seeder
 {
     public function run()
     {
-        // 商品データのシートにある4つの状態を定義します
+        
         $conditions = [
             '良好',
             '目立った傷や汚れなし',

@@ -1,16 +1,13 @@
-/* profile.css - マイページ画面 */
-
 .mypage-container {
     max-width: 800px;
     margin: 0 auto;
     padding: 40px 20px;
 }
 
-/* ユーザー情報エリア */
 .user-info {
     display: flex;
     align-items: center;
-    justify-content: center; /* 中央寄せに変更したよ */
+    justify-content: center;
     gap: 30px;
     margin-bottom: 40px;
 }
@@ -18,19 +15,17 @@
 .user-icon {
     width: 100px;
     height: 100px;
-    border-radius: 50%; /* 丸くする */
-    overflow: hidden;   /* はみ出た部分を隠す */
+    border-radius: 50%;
+    overflow: hidden;
     background-color: #ddd;
 }
 
-/* 本物の画像が表示されたときのスタイル */
 .user-icon img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* 縦横比を崩さずに埋める */
+    object-fit: cover;
 }
 
-/* 画像がないときのダミー */
 .icon-dummy {
     width: 100%;
     height: 100%;
@@ -40,7 +35,6 @@
 .user-name {
     font-size: 24px;
     font-weight: bold;
-    /* margin-right: auto; は削除して、中央寄せに馴染ませるよ */
 }
 
 .edit-btn {
@@ -61,7 +55,6 @@
     color: #fff;
 }
 
-/* タブエリア */
 .mypage-tabs {
     display: flex;
     gap: 40px;
@@ -77,13 +70,11 @@
     font-size: 18px;
 }
 
-/* 選択中のタブ（赤くなる） */
 .tab-item.active {
     color: #ff5555;
     border-bottom: 3px solid #ff5555;
 }
 
-/* 商品リスト */
 .product-list {
     display: flex;
     flex-wrap: wrap;
@@ -91,7 +82,7 @@
 }
 
 .product-item {
-    width: calc(25% - 15px); /* 4列表示 */
+    width: calc(25% - 15px);
     margin-bottom: 20px;
 }
 
@@ -100,11 +91,10 @@
     color: #333;
 }
 
-/* 商品画像のスタイル（ここが大事！） */
 .product-img {
     width: 100%;
-    aspect-ratio: 1 / 1; /* 正方形にする */
-    object-fit: cover;   /* 画像をきれいに切り抜く */
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
     background-color: #ddd;
     border-radius: 4px;
 }
@@ -114,7 +104,7 @@
     font-size: 14px;
     overflow: hidden;
     text-overflow: ellipsis;
-    white-space: nowrap; /* 長い名前は...で省略 */
+    white-space: nowrap;
 }
 
 @media screen and (max-width: 768px) {
@@ -123,7 +113,7 @@
     }
 
     .user-info {
-        flex-direction: column; /* スマホなら縦並び */
+        flex-direction: column;
         align-items: center;
         gap: 15px;
     }
@@ -135,22 +125,22 @@
     }
 
     .mypage-tabs {
-        justify-content: space-between; /* 端まで広げる */
+        justify-content: space-between;
         gap: 0;
     }
 
     .tab-item {
-        font-size: 16px; /* ★ここを変更！文字を少し小さくして収めるよ */
-        width: 50%;      /* 画面の半分ずつ使う */
+        font-size: 16px;
+        width: 50%;
         text-align: center;
         padding-bottom: 8px;
     }
 
     .product-item {
-        width: calc(50% - 10px); /* スマホなら2列 */
+        width: calc(50% - 10px);
     }
-    
+
     .product-img {
-        height: 150px; /* 画像の高さを少し調整 */
+        height: 150px;
     }
 }

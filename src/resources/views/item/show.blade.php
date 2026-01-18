@@ -8,6 +8,9 @@
     <div class="item-detail">
         <div class="item-detail__image">
             <img src="{{ asset('storage/' . $item->img_url) }}" alt="{{ $item->name }}" class="item-detail__img">
+            @if ($item->purchase)
+                <div class="sold-label">SOLD</div>
+            @endif
         </div>
 
         <div class="item-detail__info">
@@ -35,15 +38,19 @@
                 </div>
             </div>
 
-            <form action="/purchase/{{ $item->id }}" method="get">
-                <button class="item-detail__button" type="submit">購入手続きへ</button>
-            </form>
+            <div class="item-buy-area">
+                @if ($item->purchase)
+                    <button class="item-detail__button disabled" disabled>売り切れました</button>
+                @else
+                    <form action="/purchase/{{ $item->id }}" method="get">
+                        <button class="item-detail__button" type="submit">購入手続きへ</button>
+                    </form>
+                @endif
+            </div>
 
             <div class="item-detail__description">
                 <h3>商品説明</h3>
-                <p class="description-text">
-                    {{ $item->description }}
-                </p>
+                <p class="description-text">{{ $item->description }}</p>
             </div>
 
             <div class="item-detail__meta">
@@ -64,16 +71,12 @@
 
             <div class="item-detail__comment">
                 <h3>コメント ({{ $item->comments->count() }})</h3>
-
                 @foreach ($item->comments as $comment)
                     <div class="comment-item">
                         <div class="comment-user">
                             <div class="user-icon">
-                                <div class="user-icon">
-                                    {{-- ▼▼▼ ここを修正！ ▼▼▼ --}}
-                                    <img src="{{ !empty($comment->user->profile?->avatar_url) ? asset('storage/' . $comment->user->profile->avatar_url) : asset('images/default-avatar.png') }}"
-                                        alt="" class="user-icon-img">
-                                </div>
+                                <img src="{{ !empty($comment->user->profile?->avatar_url) ? asset('storage/' . $comment->user->profile->avatar_url) : asset('images/default-avatar.png') }}"
+                                     alt="" class="user-icon-img">
                             </div>
                             <span class="user-name">{{ $comment->user->name }}</span>
                         </div>
@@ -90,7 +93,6 @@
                         @error('comment')
                             <div class="error-message">{{ $message }}</div>
                         @enderror
-
                         <textarea class="comment-input" name="comment" rows="5"></textarea>
                         <button class="comment-button" type="submit">コメントを送信する</button>
                     </form>

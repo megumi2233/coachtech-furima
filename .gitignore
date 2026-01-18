@@ -13,11 +13,12 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
+
 !/storage/app/public
 !/storage/app/public/images
+
 /docker/mysql/data
 
-# OSの不要なファイル
 .DS_Store
 Thumbs.db
 

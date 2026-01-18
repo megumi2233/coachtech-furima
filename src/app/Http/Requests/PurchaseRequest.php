@@ -13,7 +13,7 @@ class PurchaseRequest extends FormRequest
      */
     public function authorize()
     {
-        return true; // ★ここを false から true に変更！
+        return true;
     }
 
     /**
@@ -24,12 +24,10 @@ class PurchaseRequest extends FormRequest
     public function rules()
     {
         return [
-            // name="payment_method" が空っぽじゃないかチェック！
             'payment_method' => 'required',
         ];
     }
 
-    // ★日本語のエラーメッセージを追加
     public function messages()
     {
         return [

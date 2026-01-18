@@ -1,5 +1,3 @@
-/* index.css - 商品一覧画面のスタイル */
-
 .product-list__header {
     border-bottom: 1px solid #ddd;
     margin-bottom: 30px;
@@ -16,7 +14,6 @@
     cursor: pointer;
 }
 
-/* アクティブなときは文字色を赤く */
 .tab.active {
     color: #ff5555;
 }
@@ -27,7 +24,6 @@
     gap: 20px;
 }
 
-/* 未認証メッセージのスタイル */
 .no-items-msg {
     width: 100%;
     text-align: center;
@@ -50,29 +46,22 @@
     width: 100%;
     aspect-ratio: 1 / 1;
     background-color: #eee;
-    /* ▼▼▼ ここが重要！はみ出したリボンを隠す魔法 ▼▼▼ */
     overflow: hidden;
     position: relative;
 }
 
-/* クラス名ではなく、imgタグそのものを指定するように変更 */
 .product-card_img-wrapper img {
     width: 100%;
     height: 100%;
-    object-fit: contain; /* 👈 ここがポイント！「全体を収める」 */
+    object-fit: contain;
 }
 
-/* ▼▼▼ SOLDラベル（斜めリボンVer.） ▼▼▼ */
 .sold-label {
     position: absolute;
-    /* 位置と角度の調整 */
     top: 18px;
     left: -40px;
     width: 150px;
-    /* 長い帯を作って */
     transform: rotate(-45deg);
-    /* 斜めに回転させる！ */
-
     background-color: #ff5555;
     color: white;
     text-align: center;
@@ -80,7 +69,6 @@
     font-size: 12px;
     font-weight: bold;
     z-index: 10;
-    /* 少し影をつけると立体感が出ます（お好みで） */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 

@@ -18,9 +18,9 @@
             </a>
 
             <form class="header__search" action="/" method="get">
-    @csrf
-    <input class="search__input" type="text" name="keyword" value="{{ request('keyword') }}" placeholder="なにをお探しですか？">
-</form>
+                @csrf
+                <input class="search__input" type="text" name="keyword" value="{{ request('keyword') }}" placeholder="なにをお探しですか？">
+            </form>
 
             <nav class="header__nav">
                 <ul class="header__nav-list">

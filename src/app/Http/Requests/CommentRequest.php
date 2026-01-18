@@ -8,7 +8,7 @@ class CommentRequest extends FormRequest
 {
     public function authorize()
     {
-        return true; // ★ここを false から true に変えるのが超重要！
+        return true; 
     }
 
     public function rules()

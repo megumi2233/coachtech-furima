@@ -1,5 +1,3 @@
-/* item.css - 商品詳細画面 */
-
 .item-detail {
     display: flex;
     justify-content: center;
@@ -12,12 +10,25 @@
 .item-detail__image {
     width: 50%;
     max-width: 500px;
+    position: relative;
 }
 
 .item-detail__img {
     width: 100%;
     height: 500px;
     object-fit: cover;
+}
+
+.sold-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #ff4b4b;
+    color: white;
+    padding: 5px 20px;
+    font-weight: bold;
+    font-size: 18px;
+    z-index: 10;
 }
 
 .item-dummy-img {
@@ -77,11 +88,8 @@
 
 .reaction-item form {
     margin: 0;
-    /* 余白をゼロに */
     display: flex;
-    /* 高さを中身にフィットさせる */
     align-items: center;
-    /* 垂直方向のズレをなくす */
 }
 
 .reaction-icon {
@@ -100,21 +108,16 @@
     padding: 0;
     cursor: pointer;
     display: flex;
-    align-items: center;    
+    align-items: center;
     line-height: 1;
 }
 
 .reaction-count {
     font-weight: bold;
-    /* 文字を太く！ */
     color: #000;
-    /* 色を真っ黒に（必要なら） */
     margin-top: 2px;
-    /* アイコンとの距離を微調整 */
     font-size: 14px;
-    /* お手本に合わせて少し小さく調整（お好みで！） */
     text-decoration: none;
-    /* 下線が出ないように念のため */
 }
 
 .item-detail__button {
@@ -129,7 +132,11 @@
     margin-bottom: 40px;
 }
 
-/* 見出し（商品説明・情報・コメント） */
+.item-detail__button.disabled {
+    background-color: #888888;
+    cursor: not-allowed;
+}
+
 .item-detail__description h3,
 .item-detail__meta h3,
 .item-detail__comment h3 {
@@ -186,33 +193,20 @@
 }
 
 .user-icon {
-    /* 以前の設定をより強力に上書き */
     width: 40px !important;
-    /* 横幅を強制的に40pxに */
     height: 40px !important;
-    /* 縦幅を強制的に40pxに */
     border-radius: 50%;
-    /* まん丸にする */
     overflow: hidden;
-    /* はみ出た部分をカット */
     margin-right: 10px;
-    /* 名前との隙間 */
     background-color: #ddd;
-    /* 画像がない時の背景色 */
     flex-shrink: 0;
-    /* 狭くなっても潰れないようにする */
 }
 
-/* アイコンの中の画像 */
 .user-icon-img {
     width: 100%;
-    /* 枠いっぱいに広げる */
     height: 100%;
-    /* 枠いっぱいに広げる */
     object-fit: cover;
-    /* 枠に合わせてトリミング */
     display: block;
-    /* 変な隙間を消す */
 }
 
 .user-name {

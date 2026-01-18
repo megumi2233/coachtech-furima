@@ -1,5 +1,3 @@
-/* purchase.css - 商品購入画面 */
-
 .purchase-container {
     max-width: 1000px;
     margin: 0 auto;
@@ -19,29 +17,26 @@
 .purchase-item {
     display: flex;
     align-items: center;
-    gap: 30px; /* 文字との間隔を少し広げたよ */
+    gap: 30px;
     padding-bottom: 30px;
     border-bottom: 1px solid #000;
     margin-bottom: 30px;
 }
 
-/* ▼▼▼ 追加：画像の枠サイズを固定！ ▼▼▼ */
 .purchase-item__image {
-    width: 180px;  /* 横幅 */
-    height: 180px; /* 高さ */
-    background-color: #f0f0f0; /* 画像がない時の背景色 */
-    flex-shrink: 0; /* 画面が狭くなっても潰れないようにする */
+    width: 180px;
+    height: 180px;
+    background-color: #f0f0f0;
+    flex-shrink: 0;
 }
 
-/* ▼▼▼ 追加：本物の写真を枠にピッタリ合わせる！ ▼▼▼ */
 .purchase-item__image img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* 枠に合わせてトリミング */
+    object-fit: cover;
     display: block;
 }
 
-/* ダミー画像用のスタイル（もし使うなら残しておく） */
 .item-dummy-img {
     width: 100%;
     height: 100%;
@@ -54,11 +49,11 @@
 }
 
 .purchase-item__info {
-    flex: 1; /* 余ったスペースを使う */
+    flex: 1;
 }
 
 .purchase-item__name {
-    font-size: 30px; /* 少し大きくして見やすく */
+    font-size: 30px;
     margin: 0 0 15px;
     font-weight: bold;
     line-height: 1.4;
@@ -86,7 +81,6 @@
     margin: 0 0 20px;
 }
 
-/* 支払い方法のプルダウン */
 .payment-select {
     width: 100%;
     padding: 12px;
@@ -98,12 +92,9 @@
     margin-top: 10px;
 }
 
-/* Windows版Chromeなどでも効くように設定するよ */
 .payment-select option {
     background-color: #333;
-    /* 背景をダークグレーに */
     color: #fff;
-    /* 文字を白に */
     padding: 10px;
 }
 
@@ -132,7 +123,6 @@
     font-weight: bold;
 }
 
-/* 右側のエリア */
 .purchase-right {
     width: 40%;
 }
@@ -184,7 +174,6 @@
     opacity: 0.8;
 }
 
-/* スマホ対応 */
 @media screen and (max-width: 768px) {
     .purchase-container {
         padding: 20px;
@@ -202,12 +191,11 @@
 
     .purchase-item {
         flex-direction: column;
-        align-items: center; /* 画像を真ん中に */
+        align-items: center;
         text-align: center;
         gap: 20px;
     }
 
-    /* スマホの時は画像を少し大きく */
     .purchase-item__image {
         width: 250px;
         height: 250px;

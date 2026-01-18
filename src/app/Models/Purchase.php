@@ -9,14 +9,13 @@ class Purchase extends Model
 {
     use HasFactory;
 
-    // ★ここを変更！保存したい項目をすべてリストアップします
     protected $fillable = [
         'user_id',
         'item_id',
-        'payment_method',         // 支払い方法
-        'shipping_postal_code',   // 配送先郵便番号
-        'shipping_address',       // 配送先住所
-        'shipping_building_name', // 配送先建物名
+        'payment_method',         
+        'shipping_postal_code',   
+        'shipping_address',       
+        'shipping_building_name', 
     ];
 
     public function user()

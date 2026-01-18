@@ -1,7 +1,5 @@
-/* sell.css - 商品出品画面（修正版） */
-
 :root {
-    --main-color: #FF3333;
+    --main-color: #ff3333;
 }
 
 .sell-container {
@@ -38,43 +36,31 @@
     font-size: 16px;
 }
 
-/* ▼▼▼ ここを変更・追加したよ！ ▼▼▼ */
 .image-upload-area {
     border: 1px dashed #ccc;
     height: 300px;
-    /* 👈 画像が見やすいように少し高くしたよ */
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #fff;
     position: relative;
-    /* 👈 追加：画像を重ねるための基準 */
     overflow: hidden;
-    /* 👈 追加：画像がはみ出さないように */
     cursor: pointer;
-    /* 👈 追加：クリックできることがわかるように */
 }
 
-/* ファイル選択ボタン（input）は隠す */
 .file-input {
     display: none;
 }
 
-/* プレビュー画像（枠いっぱいに表示！） */
 .preview-image {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    /* 画像全体が見えるように */
     position: absolute;
-    /* ボタンの上に重ねる */
     top: 0;
     left: 0;
     z-index: 10;
-    /* ボタンより手前に表示 */
 }
-
-/* ▲▲▲ ここまで変更・追加 ▲▲▲ */
 
 .upload-btn {
     border: 2px solid var(--main-color);
@@ -114,7 +100,7 @@
     transition: 0.2s;
 }
 
-input[type="checkbox"]:checked+.category-label {
+input[type="checkbox"]:checked + .category-label {
     background-color: var(--main-color);
     color: #fff;
 }
@@ -134,8 +120,6 @@ select.form-control {
     background-color: #fff;
 }
 
-/* ※注意：Windows版Chromeなどでは、ここの色が完全には反映されない場合がありますが、
-   可能な範囲で「背景黒・文字白」を適用します */
 select.form-control option {
     background-color: #333;
     color: #fff;
@@ -147,7 +131,7 @@ select.form-control option {
 }
 
 .select-wrapper::after {
-    content: '▼';
+    content: "▼";
     font-size: 12px;
     color: #888;
     position: absolute;
@@ -217,7 +201,6 @@ select.form-control option {
 
     .image-upload-area {
         height: 200px;
-        /* スマホでは少し小さめに */
     }
 
     .upload-btn {

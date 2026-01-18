@@ -23,13 +23,10 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        // ▼▼▼ 修正ポイント 1：強制的にメールを送る命令を追加！ ▼▼▼
         $user->sendEmailVerificationNotification();
 
         Auth::login($user);
 
-        // ▼▼▼ 修正ポイント 2：行き先を「認証画面」に変更！（設計書FN006対応） ▼▼▼
-        // return redirect('/mypage/profile'); // 👈 元のコード（削除）
-        return redirect('/email/verify');      // 👈 新しいコード！
+        return redirect('/email/verify');
     }
 }

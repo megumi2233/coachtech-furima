@@ -1,10 +1,8 @@
-/* login.css - ログイン画面専用のスタイル */
-
 .login-form {
     margin: 0 auto;
     width: 100%;
-    max-width: 400px; 
-    padding: 50px 0;  
+    max-width: 400px;
+    padding: 50px 0;
 }
 
 .main__title {
@@ -29,7 +27,7 @@
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    box-sizing: border-box; 
+    box-sizing: border-box;
     appearance: none;
     font-size: 16px;
 }
@@ -39,7 +37,6 @@
     font-size: 14px;
     margin-top: 5px;
 }
-
 
 .form__button {
     width: 100%;
@@ -61,7 +58,7 @@
 
 .login__link {
     margin-top: 20px;
-    text-align: center; 
+    text-align: center;
 }
 
 .link__text {

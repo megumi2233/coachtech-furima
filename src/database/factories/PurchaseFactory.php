@@ -13,7 +13,6 @@ class PurchaseFactory extends Factory
         return [
             'user_id' => User::factory(),
             'item_id' => Item::factory(),
-
             'payment_method' => $this->faker->randomElement(['コンビニ支払い', 'カード支払い']),
             'shipping_postal_code' => $this->faker->postcode, 
             'shipping_address' => $this->faker->prefecture . $this->faker->city . $this->faker->streetAddress, 
