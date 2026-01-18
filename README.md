@@ -164,16 +164,16 @@ docker-compose exec php php artisan storage:link
     
 ---
 
-### 🛠 使用技術（この例で使われている環境）
-- **PHP 8.2**  
-- **Laravel 10.x**  
-- **MySQL 8.0.x**  
-- **Docker（開発環境構築）**  
-  - nginx（Webサーバ）  
-  - php（アプリケーション）  
-  - mysql（データベース）  
-  - phpmyadmin（DB管理ツール）  
-- **フロントエンドビルド**: Vite（Laravel公式推奨のビルドツール）
+### 🛠 使用技術
+- **PHP 8.x**
+- **Laravel 8.x**
+- **MySQL 8.0**
+- **Docker（開発環境構築）**
+  - nginx / php / mysql / mailhog / phpmyadmin
+- **Stripe API**（決済機能の実装：stripe-php v19.1）
+- **Laravel Fortify**（認証機能の実装）
+- **テスト**: PHPUnit（機能テスト・バリデーションテスト）
+- **フロントエンド**: CSS (独自デザイン / レスポンシブ対応)
 
 ---
 
