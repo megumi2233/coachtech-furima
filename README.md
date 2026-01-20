@@ -337,7 +337,7 @@ docker-compose exec php php artisan storage:link
 開発環境では phpMyAdmin を利用して、ブラウザからデータベースの内容を直接確認いただけます。
 - **phpMyAdmin**: [http://localhost:8080/](http://localhost:8080/)
   - ユーザー名: `laravel_user`
-  - パスワード: `laravel_user`
+  - パスワード: `laravel_pass`
   → 会員登録後の `users` テーブルのレコード増加や、商品購入後の `purchases` テーブルの反映状況などを即座に確認可能です。
 
 ---
