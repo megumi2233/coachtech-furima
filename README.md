@@ -297,26 +297,24 @@ docker-compose exec php php artisan storage:link
   - 会員登録・ログイン・メール認証用の共通レイアウト
 - `src/resources/views/layouts/app.blade.php`
   - 商品一覧・詳細・マイページなど、アプリケーション全般のメインレイアウト
+    
+※ 各画面のViewファイルは、用途に応じて上記の共通レイアウトを継承（@extends）して作成しています。
 
 #### 会員登録・認証関連
-※ 各画面のViewファイルは、上記の共通レイアウトを継承（@extends）して作成しています。
 - `src/resources/views/auth/register.blade.php` : 会員登録画面
 - `src/resources/views/auth/login.blade.php` : ログイン画面
 - `src/resources/views/auth/verify.blade.php` : メール認証画面
 
 #### 商品関連
-※ 各画面のViewファイルは、上記の共通レイアウトを継承（@extends）して作成しています。
 - `src/resources/views/index.blade.php` : 商品一覧画面
 - `src/resources/views/item/show.blade.php` : 商品詳細画面
 - `src/resources/views/item/create.blade.php` : 商品出品画面
 
 #### 購入関連
-※ 各画面のViewファイルは、上記の共通レイアウトを継承（@extends）して作成しています。
 - `src/resources/views/purchase/show.blade.php` : 商品購入画面
 - `src/resources/views/purchase/address.blade.php` : 送付先住所変更画面
 
 #### マイページ・プロフィール
-※ 各画面のViewファイルは、上記の共通レイアウトを継承（@extends）して作成しています。
 - `src/resources/views/mypage/profile.blade.php` : プロフィール画面（マイリスト）
 - `src/resources/views/mypage/edit.blade.php` : プロフィール設定・編集画面
 
