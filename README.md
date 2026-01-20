@@ -298,7 +298,7 @@ docker-compose exec php php artisan storage:link
 3. PNGファイルは `assets/coachtech-furima-er.png` に保存されています。
 
    → READMEではこの画像を参照しています。
-4. 編集には [draw.io（diagrams.net）](https://app.diagrams.net/) を使用してください。
+4. **編集用ツール**: [https://app.diagrams.net/](https://app.diagrams.net/)
 
 　 　ローカルアプリまたはブラウザ版のどちらでも編集可能です。
   
