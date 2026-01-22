@@ -365,7 +365,7 @@ docker-compose exec php php artisan storage:link
 - **バリデーション**: 各フォーム（登録、出品、コメント等）における未入力チェックや文字数制限などのバリデーションロジックをテストコードで検証済みです。
 
 #### 実行コマンド
-- コマンド：`php artisan test`
+- コマンド：`docker-compose exec php php artisan test`
 ※ 実装したすべてのテストケースにおいて、正常にパスすることを確認済みです。
 
 ---
