@@ -58,13 +58,20 @@ docker-compose exec php composer install
 
 #### 4. .env ファイルの作成
 
-Laravel の環境設定を行うために、`.env.example` をコピーして `.env` ファイルを作成します。
+Laravel の環境設定を行うために、**`src` ディレクトリに移動してから**`.env.example` をコピーして `.env` ファイルを作成します。
 
 ```bash
+# src ディレクトリに移動
+cd src
+
+# .env.example をコピーして .env を作成
 cp .env.example .env
+
+# 設定が終わったら元のディレクトリに戻る
+cd ..
 ```
 
-.env内の DB 設定を以下のように修正し、ファイルを保存してください。 
+作成した src/.env ファイルをテキストエディタ（VSCode等）で開き、DB 設定を以下のように修正して保存してください。
 
 （※この設定が正しく保存されていないと、以降のコマンドで接続エラーが発生します）
 
@@ -346,7 +353,7 @@ docker-compose exec php php artisan storage:link
 
 - **マイページ関連**
   - `src/public/css/profile.css` : プロフィール画面（マイリスト）
-  - `src/public/css/profile_edit.css` : プロフィール設定・編集画面
+  - `src/public/css/profile-edit.css` : プロフィール設定・編集画面
     
 ---
 
