@@ -13,7 +13,7 @@ class ConditionFactory extends Factory
                 '良好',
                 '目立った傷や汚れなし',
                 'やや傷や汚れあり',
-                '状態が悪い'
+                '状態が悪い',
             ]),
         ];
     }

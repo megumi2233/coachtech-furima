@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\ProfileRequest;
 use App\Models\Profile;
-use App\Models\User;
 use App\Http\Requests\AddressRequest;
 use App\Models\Item;
 use App\Models\Purchase;
@@ -43,8 +41,8 @@ class ProfileController extends Controller
         $user->save();
 
         $profileData = [
-            'zipcode'       => $request->postal_code,
-            'address'       => $request->address,
+            'zipcode' => $request->postal_code,
+            'address' => $request->address,
             'building_name' => $request->building,
         ];
 
@@ -61,21 +59,21 @@ class ProfileController extends Controller
         return redirect('/mypage');
     }
 
-    public function editAddress($item_id)
+    public function editAddress($itemId)
     {
-        return view('purchase.address', ['item_id' => $item_id]);
+        return view('purchase.address', ['itemId' => $itemId]);
     }
 
-    public function updateAddress(AddressRequest $request, $item_id)
+    public function updateAddress(AddressRequest $request, $itemId)
     {
         $user = Auth::user();
 
         $user->profile->update([
-            'zipcode'       => $request->input('postal_code'),
-            'address'       => $request->input('address'),
+            'zipcode' => $request->input('postal_code'),
+            'address' => $request->input('address'),
             'building_name' => $request->input('building'),
         ]);
 
-        return redirect('/purchase/' . $item_id);
+        return redirect('/purchase/' . $itemId);
     }
 }

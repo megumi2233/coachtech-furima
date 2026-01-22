@@ -6,31 +6,21 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateItemsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('items', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
-            $table->string('name'); 
-            $table->string('brand_name')->nullable(); 
-            $table->integer('price'); 
-            $table->text('description'); 
-            $table->text('img_url'); 
-            $table->foreignId('condition_id')->constrained(); 
+            $table->string('name');
+            $table->string('brand_name')->nullable();
+            $table->integer('price');
+            $table->text('description');
+            $table->text('img_url');
+            $table->foreignId('condition_id')->constrained();
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('items');

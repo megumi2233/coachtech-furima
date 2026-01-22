@@ -23,7 +23,7 @@ class CategoriesTableSeeder extends Seeder
             'ハンドメイド',
             'アクセサリー',
             'おもちゃ',
-            'ベビー・キッズ'
+            'ベビー・キッズ',
         ];
 
         foreach ($categories as $category) {

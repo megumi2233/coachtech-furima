@@ -6,11 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateConditionsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('conditions', function (Blueprint $table) {
@@ -20,11 +15,6 @@ class CreateConditionsTable extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('conditions');

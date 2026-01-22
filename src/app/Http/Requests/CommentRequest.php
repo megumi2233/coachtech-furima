@@ -8,13 +8,13 @@ class CommentRequest extends FormRequest
 {
     public function authorize()
     {
-        return true; 
+        return true;
     }
 
     public function rules()
     {
         return [
-            'comment' => 'required|string|max:255',
+            'comment' => ['required', 'string', 'max:255'],
         ];
     }
 

@@ -12,17 +12,17 @@
 
 <body>
     <header class="header">
-        <div class="header__inner">
-            <a href="/" class="header__logo">
-                <img src="{{ asset('images/logo.png') }}" alt="COACHTECH" class="header__logo-img">
+        <div class="header-inner">
+            <a href="/" class="header-logo">
+                <img src="{{ asset('images/logo.png') }}" alt="COACHTECH" class="header-logo-img">
             </a>
         </div>
     </header>
 
     <main class="main">
-        <div class="main__inner">
+        <div class="main-inner">
             @if (isset($title))
-                <h2 class="main__title">{{ $title }}</h2>
+                <h2 class="main-title">{{ $title }}</h2>
             @endif
 
             @yield('content')

@@ -23,7 +23,7 @@ class CategoryFactory extends Factory
                 'ハンドメイド',
                 'アクセサリー',
                 'おもちゃ',
-                'ベビー・キッズ'
+                'ベビー・キッズ',
             ]),
         ];
     }

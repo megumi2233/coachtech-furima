@@ -20,7 +20,7 @@
     background-color: #ddd;
 }
 
-.user-icon img {
+.user-icon-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -86,7 +86,7 @@
     margin-bottom: 20px;
 }
 
-.product-item a {
+.product-item-link {
     text-decoration: none;
     color: #333;
 }
@@ -138,9 +138,5 @@
 
     .product-item {
         width: calc(50% - 10px);
-    }
-
-    .product-img {
-        height: 150px;
     }
 }

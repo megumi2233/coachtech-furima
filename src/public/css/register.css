@@ -3,7 +3,7 @@
     width: 100%;
 }
 
-.form__button {
+.form-button {
     width: 100%;
     padding: 12px;
     background-color: #ff5555;
@@ -17,10 +17,10 @@
     transition: background-color 0.3s;
 }
 
-.form__button:hover {
+.form-button:hover {
     background-color: #ff3333;
 }
 
-.register__link {
+.register-link {
     margin-top: 20px;
 }

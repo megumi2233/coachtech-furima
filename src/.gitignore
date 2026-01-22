@@ -14,18 +14,14 @@ yarn-error.log
 /.idea
 /.vscode
 
-# 必要なフォルダは除外しない設定
 !/storage/app/public
 !/storage/app/public/images
 
-# データベースのデータ（重たいので除外）
 /docker/mysql/data
 
-# OSの不要なファイル
 .DS_Store
 Thumbs.db
 
-# Laravelのキャッシュ・ログ（動作を軽くするために除外）
 /storage/logs
 /storage/framework/cache
 /storage/framework/sessions

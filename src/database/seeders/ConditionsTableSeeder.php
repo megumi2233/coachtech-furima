@@ -9,7 +9,6 @@ class ConditionsTableSeeder extends Seeder
 {
     public function run()
     {
-        
         $conditions = [
             '良好',
             '目立った傷や汚れなし',

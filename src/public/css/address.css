@@ -15,18 +15,18 @@
     width: 100%;
 }
 
-.address-form__group {
+.address-form-group {
     margin-bottom: 30px;
 }
 
-.address-form__label {
+.address-form-label {
     display: block;
     font-weight: bold;
     margin-bottom: 10px;
     font-size: 16px;
 }
 
-.address-form__input {
+.address-form-input {
     width: 100%;
     padding: 12px;
     border: 1px solid #ccc;
@@ -35,7 +35,7 @@
     box-sizing: border-box;
 }
 
-.address-form__btn {
+.address-form-btn {
     width: 100%;
     padding: 15px;
     background-color: #ff5555;
@@ -49,28 +49,32 @@
     transition: opacity 0.3s;
 }
 
-.address-form__btn:hover {
+.address-form-btn:hover {
     opacity: 0.8;
+}
+
+.error-message {
+    color: #ff5555;
+    font-size: 14px;
+    margin-top: 5px;
 }
 
 @media screen and (max-width: 768px) {
     .address-main {
         padding: 20px;
-
         margin-top: 20px;
     }
 
     .address-title {
         font-size: 20px;
-
         margin-bottom: 25px;
     }
 
-    .address-form__group {
+    .address-form-group {
         margin-bottom: 20px;
     }
 
-    .address-form__btn {
+    .address-form-btn {
         margin-top: 10px;
     }
 }

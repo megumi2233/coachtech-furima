@@ -12,39 +12,39 @@
 
 <body>
     <header class="header">
-        <div class="header__inner">
-            <a class="header__logo" href="/">
-                <img src="{{ asset('images/logo.png') }}" alt="COACHTECH" class="header__logo-img">
+        <div class="header-inner">
+            <a class="header-logo" href="/">
+                <img src="{{ asset('images/logo.png') }}" alt="COACHTECH" class="header-logo-img">
             </a>
 
-            <form class="header__search" action="/" method="get">
+            <form class="header-search" action="/" method="get">
                 @csrf
-                <input class="search__input" type="text" name="keyword" value="{{ request('keyword') }}" placeholder="なにをお探しですか？">
+                <input class="search-input" type="text" name="keyword" value="{{ request('keyword') }}" placeholder="なにをお探しですか？">
             </form>
 
-            <nav class="header__nav">
-                <ul class="header__nav-list">
+            <nav class="header-nav">
+                <ul class="header-nav-list">
                     @guest
-                        <li class="header__nav-item">
-                            <a class="header__nav-link" href="/login">ログイン</a>
+                        <li class="header-nav-item">
+                            <a class="header-nav-link" href="/login">ログイン</a>
                         </li>
                     @endguest
 
                     @auth
-                        <li class="header__nav-item">
+                        <li class="header-nav-item">
                             <form action="/logout" method="post">
                                 @csrf
-                                <button class="header__nav-link btn-logout" type="submit">ログアウト</button>
+                                <button class="header-nav-link btn-logout" type="submit">ログアウト</button>
                             </form>
                         </li>
                     @endauth
 
-                    <li class="header__nav-item">
-                        <a class="header__nav-link" href="/mypage">マイページ</a>
+                    <li class="header-nav-item">
+                        <a class="header-nav-link" href="/mypage">マイページ</a>
                     </li>
 
-                    <li class="header__nav-item">
-                        <a class="header__nav-button" href="/sell">出品</a>
+                    <li class="header-nav-item">
+                        <a class="header-nav-button" href="/sell">出品</a>
                     </li>
                 </ul>
             </nav>

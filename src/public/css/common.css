@@ -13,7 +13,7 @@ body {
     align-items: center;
 }
 
-.header__inner {
+.header-inner {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
@@ -22,30 +22,24 @@ body {
     align-items: center;
 }
 
-.header__logo {
+.header-logo {
     text-decoration: none;
     margin-right: 30px;
 }
 
-.header__logo-img {
+.header-logo-img {
     height: 28px;
     width: auto;
     display: block;
-}
-
-.header__logo img,
-.header img {
-    width: auto !important;
-    height: 28px;
     object-fit: contain;
 }
 
-.header__search {
+.header-search {
     flex-grow: 1;
     max-width: 400px;
 }
 
-.search__input {
+.search-input {
     width: 100%;
     padding: 8px 10px;
     border-radius: 4px;
@@ -54,11 +48,11 @@ body {
     background-color: #fff;
 }
 
-.search__input::placeholder {
+.search-input::placeholder {
     color: #000;
 }
 
-.header__nav-list {
+.header-nav-list {
     display: flex;
     list-style: none;
     margin: 0;
@@ -66,17 +60,17 @@ body {
     align-items: center;
 }
 
-.header__nav-item {
+.header-nav-item {
     margin-left: 30px;
 }
 
-.header__nav-item form {
+.header-nav-item form {
     display: flex;
     align-items: center;
     margin: 0;
 }
 
-.header__nav-link {
+.header-nav-link {
     color: #fff;
     text-decoration: none;
     font-size: 14px;
@@ -88,7 +82,7 @@ body {
     font-family: inherit;
 }
 
-.header__nav-button {
+.header-nav-button {
     background-color: #fff;
     color: #000;
     text-decoration: none;
@@ -111,12 +105,12 @@ body {
         padding: 15px;
     }
 
-    .header__inner {
+    .header-inner {
         flex-wrap: wrap;
         justify-content: center;
     }
 
-    .header__logo {
+    .header-logo {
         order: 1;
         width: 100%;
         text-align: center;
@@ -124,42 +118,42 @@ body {
         margin-bottom: 10px;
     }
 
-    .header__logo-img {
+    .header-logo-img {
         height: 24px;
         display: inline-block;
     }
 
-    .header__nav {
+    .header-nav {
         order: 2;
         width: 100%;
         margin-bottom: 10px;
     }
 
-    .header__nav-list {
+    .header-nav-list {
         justify-content: center;
         gap: 10px;
     }
 
-    .header__nav-item {
+    .header-nav-item {
         margin-left: 0;
     }
 
-    .header__nav-link {
+    .header-nav-link {
         font-size: 12px;
     }
 
-    .header__nav-button {
+    .header-nav-button {
         padding: 6px 14px;
         font-size: 12px;
     }
 
-    .header__search {
+    .header-search {
         order: 3;
         width: 100%;
         max-width: 100%;
     }
 
-    .search__input {
+    .search-input {
         width: 100%;
         box-sizing: border-box;
         max-width: 100%;

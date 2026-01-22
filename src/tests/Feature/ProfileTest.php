@@ -24,29 +24,24 @@ class ProfileTest extends TestCase
     public function test_user_can_see_mypage_info()
     {
         $user = User::factory()->create(['email_verified_at' => now(), 'name' => 'テスト太郎']);
-
         Profile::factory()->create([
             'user_id' => $user->id,
-            'avatar_url' => 'profile_images/dummy.jpg'
+            'avatar_url' => 'profile_images/dummy.jpg',
         ]);
-
         Item::factory()->create([
             'user_id' => $user->id,
-            'name' => '自分が出品した服'
+            'name' => '自分が出品した服',
         ]);
-
         $otherItem = Item::factory()->create(['name' => '他人が出品した本']);
         Purchase::factory()->create([
             'user_id' => $user->id,
-            'item_id' => $otherItem->id
+            'item_id' => $otherItem->id,
         ]);
-
         $response = $this->actingAs($user)->get('/mypage');
         $response->assertStatus(200);
         $response->assertSee('テスト太郎');
         $response->assertSee('自分が出品した服');
         $response->assertSee('dummy.jpg');
-
         $responseBuy = $this->actingAs($user)->get('/mypage?page=buy');
         $responseBuy->assertSee('他人が出品した本');
     }
@@ -59,9 +54,8 @@ class ProfileTest extends TestCase
             'zipcode' => '111-2222',
             'address' => '東京都千代田区',
             'building_name' => 'テストビル101',
-            'avatar_url' => 'initial.jpg'
+            'avatar_url' => 'initial.jpg',
         ]);
-
         $response = $this->actingAs($user)->get('/mypage/profile');
         $response->assertStatus(200);
         $response->assertSee('value="初期値確認太郎"', false);
@@ -73,27 +67,22 @@ class ProfileTest extends TestCase
     public function test_user_can_update_profile()
     {
         Storage::fake('public');
-
         $user = User::factory()->create(['email_verified_at' => now()]);
         Profile::factory()->create(['user_id' => $user->id]);
-
         $avatar = UploadedFile::fake()->create('avatar.jpeg', 100);
-
         $updateData = [
-            'name'          => '変更後の名前',
-            'postal_code'   => '999-9999',
-            'address'       => '大阪府大阪市',
-            'building'      => '更新ビル',
+            'name' => '変更後の名前',
+            'postal_code' => '999-9999',
+            'address' => '大阪府大阪市',
+            'building' => '更新ビル',
             'profile_image' => $avatar,
         ];
-
         $response = $this->actingAs($user)->post('/mypage/profile', $updateData);
         $response->assertRedirect('/mypage');
-
         $this->assertDatabaseHas('users', ['name' => '変更後の名前']);
         $this->assertDatabaseHas('profiles', [
-            'zipcode'       => '999-9999',
-            'address'       => '大阪府大阪市',
+            'zipcode' => '999-9999',
+            'address' => '大阪府大阪市',
             'building_name' => '更新ビル',
         ]);
     }
@@ -101,26 +90,22 @@ class ProfileTest extends TestCase
     public function test_profile_update_validation_zipcode()
     {
         $user = User::factory()->create(['email_verified_at' => now()]);
-
         $response = $this->actingAs($user)->post('/mypage/profile', [
-            'name'        => 'テストユーザー',
+            'name' => 'テストユーザー',
             'postal_code' => '1234567',
-            'address'     => '住所',
+            'address' => '住所',
         ]);
-
         $response->assertSessionHasErrors(['postal_code']);
     }
 
     public function test_profile_update_validation_required()
     {
         $user = User::factory()->create(['email_verified_at' => now()]);
-
         $response = $this->actingAs($user)->post('/mypage/profile', [
-            'name'        => '',
+            'name' => '',
             'postal_code' => '',
-            'address'     => '',
+            'address' => '',
         ]);
-
         $response->assertSessionHasErrors(['name', 'postal_code', 'address']);
     }
 
@@ -128,16 +113,13 @@ class ProfileTest extends TestCase
     {
         $user = User::factory()->create(['email_verified_at' => now()]);
         Storage::fake('public');
-
         $text = UploadedFile::fake()->create('document.txt', 100);
-
         $response = $this->actingAs($user)->post('/mypage/profile', [
-            'name'          => '正しい名前',
-            'postal_code'   => '123-4567',
-            'address'       => '住所',
+            'name' => '正しい名前',
+            'postal_code' => '123-4567',
+            'address' => '住所',
             'profile_image' => $text,
         ]);
-
         $response->assertSessionHasErrors(['profile_image']);
     }
 }

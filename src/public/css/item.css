@@ -7,13 +7,13 @@
     margin: 0 auto;
 }
 
-.item-detail__image {
+.item-detail-image {
     width: 50%;
     max-width: 500px;
     position: relative;
 }
 
-.item-detail__img {
+.item-detail-img {
     width: 100%;
     height: 500px;
     object-fit: cover;
@@ -42,23 +42,23 @@
     color: #333;
 }
 
-.item-detail__info {
+.item-detail-info {
     width: 50%;
     max-width: 500px;
 }
 
-.item-detail__name {
+.item-detail-name {
     font-size: 28px;
     margin: 0 0 10px;
 }
 
-.item-detail__brand {
+.item-detail-brand {
     font-size: 14px;
     color: #333;
     margin: 0 0 20px;
 }
 
-.item-detail__price {
+.item-detail-price {
     font-size: 24px;
     font-weight: bold;
     margin: 0 0 20px;
@@ -69,7 +69,7 @@
     font-weight: normal;
 }
 
-.item-detail__reaction {
+.item-detail-reaction {
     display: flex;
     gap: 20px;
     margin-bottom: 20px;
@@ -83,7 +83,6 @@
     align-items: center;
     gap: 2px;
     cursor: pointer;
-    object-fit: contain;
 }
 
 .reaction-item form {
@@ -120,7 +119,7 @@
     text-decoration: none;
 }
 
-.item-detail__button {
+.item-detail-button {
     width: 100%;
     padding: 12px;
     background-color: #ff5555;
@@ -132,14 +131,14 @@
     margin-bottom: 40px;
 }
 
-.item-detail__button.disabled {
+.item-detail-button.disabled {
     background-color: #888888;
     cursor: not-allowed;
 }
 
-.item-detail__description h3,
-.item-detail__meta h3,
-.item-detail__comment h3 {
+.item-detail-description h3,
+.item-detail-meta h3,
+.item-detail-comment h3 {
     font-size: 20px;
     margin-bottom: 20px;
     font-weight: bold;
@@ -177,7 +176,7 @@
     font-size: 14px;
 }
 
-.item-detail__comment {
+.item-detail-comment {
     margin-top: 40px;
 }
 
@@ -193,8 +192,8 @@
 }
 
 .user-icon {
-    width: 40px !important;
-    height: 40px !important;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     overflow: hidden;
     margin-right: 10px;
@@ -245,7 +244,7 @@
 }
 
 .error-message {
-    color: red;
+    color: #ff0000;
     margin-bottom: 10px;
 }
 
@@ -256,27 +255,27 @@
         gap: 30px;
     }
 
-    .item-detail__image {
+    .item-detail-image {
         width: 100%;
         max-width: 100%;
         margin: 0 auto;
     }
 
-    .item-detail__image img,
+    .item-detail-image img,
     .item-dummy-img {
         height: 300px;
     }
 
-    .item-detail__info {
+    .item-detail-info {
         width: 100%;
         max-width: 100%;
     }
 
-    .item-detail__name {
+    .item-detail-name {
         font-size: 24px;
     }
 
-    .item-detail__button {
+    .item-detail-button {
         padding: 15px;
     }
 }

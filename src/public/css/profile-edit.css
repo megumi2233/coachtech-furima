@@ -52,14 +52,14 @@
     margin-bottom: 30px;
 }
 
-.form-group label {
+.form-label {
     display: block;
     font-weight: bold;
     margin-bottom: 10px;
     font-size: 16px;
 }
 
-.form-group input {
+.form-input {
     width: 100%;
     padding: 12px;
     border: 1px solid #ccc;
@@ -116,11 +116,11 @@
         padding: 8px 15px;
     }
 
-    .form-group label {
+    .form-label {
         font-size: 14px;
     }
 
-    .form-group input {
+    .form-input {
         font-size: 16px;
         padding: 10px;
     }

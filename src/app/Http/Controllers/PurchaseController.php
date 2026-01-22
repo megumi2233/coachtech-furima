@@ -10,9 +10,9 @@ use App\Models\Purchase;
 
 class PurchaseController extends Controller
 {
-    public function create($item_id)
+    public function create($itemId)
     {
-        $item = Item::findOrFail($item_id);
+        $item = Item::findOrFail($itemId);
 
         if ($item->purchase) {
             return redirect('/')->with('error', 'この商品はすでに売り切れです。');
@@ -21,9 +21,9 @@ class PurchaseController extends Controller
         return view('purchase.show', compact('item'));
     }
 
-    public function store(PurchaseRequest $request, $item_id)
+    public function store(PurchaseRequest $request, $itemId)
     {
-        $item = Item::findOrFail($item_id);
+        $item = Item::findOrFail($itemId);
 
         if ($item->purchase) {
             return redirect('/')->with('error', 'この商品はすでに売り切れです。');
@@ -35,7 +35,7 @@ class PurchaseController extends Controller
         $paymentMethodTypes = ($paymentMethod === 'konbini') ? ['konbini'] : ['card'];
         $user = Auth::user();
 
-        $checkout_session = \Stripe\Checkout\Session::create([
+        $checkoutSession = \Stripe\Checkout\Session::create([
             'payment_method_types' => $paymentMethodTypes,
             'line_items' => [[
                 'price_data' => [
@@ -53,12 +53,12 @@ class PurchaseController extends Controller
             'cancel_url' => route('item.show', $item->id),
         ]);
 
-        return redirect($checkout_session->url);
+        return redirect($checkoutSession->url);
     }
 
-    public function success(Request $request, $item_id)
+    public function success(Request $request, $itemId)
     {
-        $item = Item::findOrFail($item_id);
+        $item = Item::findOrFail($itemId);
         $user = Auth::user();
         $paymentMethod = $request->input('payment_method');
 
