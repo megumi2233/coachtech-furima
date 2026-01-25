@@ -84,6 +84,15 @@ DB_USERNAME=laravel_user
 DB_PASSWORD=laravel_pass
 ```
 
+また、**商品購入機能（Stripe決済）**を利用する場合は、ご自身の Stripe テスト用 API キーを `.env` の末尾に追記してください。
+
+```ini
+STRIPE_PUBLIC_KEY=pk_test_...（ご自身の公開鍵）
+STRIPE_SECRET_KEY=sk_test_...（ご自身の秘密鍵）
+```
+
+（※キーが設定されていない場合、購入時に決済エラーが発生します。）
+
 #### 5. アプリケーションキーの生成
 
 アプリケーションを起動するためのキーを生成します。
