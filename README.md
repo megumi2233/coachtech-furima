@@ -30,7 +30,7 @@ COACHTECH 模擬案件：Laravel を用いたフリマアプリの作成プロ�
 
 ```bash
 cd coachtech/laravel
-git clone https://github.com/megumi2233/coachtech-furima.git
+git clone git@github.com:megumi2233/coachtech-furima.git
 cd coachtech-furima
 ```
 
