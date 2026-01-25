@@ -33,7 +33,8 @@
             @if (request('page') == 'buy')
                 @foreach ($purchasedItems as $purchase)
                     <div class="product-item">
-                        <a href="{{ route('item.show', ['item_id' => $purchase->item->id]) }}">
+                        {{-- ↓ class="product-item-link" を追加 --}}
+                        <a href="{{ route('item.show', ['item_id' => $purchase->item->id]) }}" class="product-item-link">
                             <img src="{{ asset('storage/' . $purchase->item->img_url) }}" alt="商品画像"
                                 class="product-img">
                             <p class="product-name">{{ $purchase->item->name }}</p>
@@ -43,7 +44,8 @@
             @else
                 @foreach ($soldItems as $item)
                     <div class="product-item">
-                        <a href="{{ route('item.show', ['item_id' => $item->id]) }}">
+                        {{-- ↓ class="product-item-link" を追加 --}}
+                        <a href="{{ route('item.show', ['item_id' => $item->id]) }}" class="product-item-link">
                             <img src="{{ asset('storage/' . $item->img_url) }}" alt="商品画像" class="product-img">
                             <p class="product-name">{{ $item->name }}</p>
                         </a>
