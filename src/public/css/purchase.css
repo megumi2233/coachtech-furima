@@ -173,39 +173,3 @@
 .purchase-button:hover {
     opacity: 0.8;
 }
-
-@media screen and (max-width: 768px) {
-    .purchase-container {
-        padding: 20px;
-    }
-
-    .purchase-form {
-        flex-direction: column;
-        gap: 40px;
-    }
-
-    .purchase-left,
-    .purchase-right {
-        width: 100%;
-    }
-
-    .purchase-item {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 20px;
-    }
-
-    .purchase-item-image {
-        width: 250px;
-        height: 250px;
-    }
-
-    .purchase-item-name {
-        font-size: 24px;
-    }
-
-    .purchase-item-price {
-        font-size: 22px;
-    }
-}

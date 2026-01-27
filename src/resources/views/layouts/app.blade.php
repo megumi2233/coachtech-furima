@@ -19,7 +19,8 @@
 
             <form class="header-search" action="/" method="get">
                 @csrf
-                <input class="search-input" type="text" name="keyword" value="{{ request('keyword') }}" placeholder="なにをお探しですか？">
+                <input class="search-input" type="text" name="keyword" value="{{ request('keyword') }}"
+                    placeholder="なにをお探しですか？">
             </form>
 
             <nav class="header-nav">

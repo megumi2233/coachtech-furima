@@ -82,18 +82,3 @@ body {
     text-decoration: none;
     font-size: 14px;
 }
-
-@media screen and (max-width: 768px) {
-    .main {
-        padding-top: 40px;
-    }
-
-    .main-inner {
-        padding: 0 15px;
-    }
-
-    .main-title {
-        font-size: 20px;
-        margin-bottom: 30px;
-    }
-}

@@ -5,26 +5,26 @@
 @endsection
 
 @section('content')
-<div class="verify-content">
-    @if (session('message'))
-        <div class="verify-content-alert">
-            {{ session('message') }}
+    <div class="verify-content">
+        @if (session('message'))
+            <div class="verify-content-alert">
+                {{ session('message') }}
+            </div>
+        @endif
+
+        <div class="verify-content-text">
+            <p>
+                登録していただいたメールアドレスに認証メールを送付しました。<br>
+                メール認証を完了してください。
+            </p>
         </div>
-    @endif
 
-    <div class="verify-content-text">
-        <p>
-            登録していただいたメールアドレスに認証メールを送付しました。<br>
-            メール認証を完了してください。
-        </p>
-    </div>
+        <div class="verify-content-button">
+            <a class="verify-button" href="http://localhost:8025" target="_blank">認証はこちらから</a>
+        </div>
 
-    <div class="verify-content-button">
-        <a class="verify-button" href="http://localhost:8025" target="_blank">認証はこちらから</a>
+        <div class="verify-content-link">
+            <a class="link-text" href="/email/resend">認証メールを再送する</a>
+        </div>
     </div>
-
-    <div class="verify-content-link">
-        <a class="link-text" href="/email/resend">認証メールを再送する</a>
-    </div>
-</div>
 @endsection
