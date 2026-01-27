@@ -77,7 +77,9 @@ class ProfileTest extends TestCase
             'building' => '更新ビル',
             'profile_image' => $avatar,
         ];
-        $response = $this->actingAs($user)->post('/mypage/profile', $updateData);
+        $response = $this->actingAs($user)
+            ->from('/mypage/profile')
+            ->post('/mypage/profile', $updateData);
         $response->assertRedirect('/mypage');
         $this->assertDatabaseHas('users', ['name' => '変更後の名前']);
         $this->assertDatabaseHas('profiles', [

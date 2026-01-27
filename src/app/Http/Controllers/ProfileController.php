@@ -56,6 +56,10 @@ class ProfileController extends Controller
             $profileData
         );
 
+        if ($request->header('referer') && str_contains($request->header('referer'), '/mypage/profile')) {
+            return redirect('/mypage');
+        }
+
         return redirect('/');
     }
 
