@@ -191,6 +191,21 @@ docker-compose exec php php artisan test tests/Feature
 
 ※ 実装したすべてのテストケースにおいて、正常にパスすることを確認済みです。
 
+**【注意：テスト実行後の環境復旧について】**
+自動テストを実行すると、`RefreshDatabase`機能によりデータベース内のデータがリセットされます。テスト実行後にブラウザで動作確認を行う場合は、以下の手順で環境を再構築してください。
+
+1. **データベースの初期化とシーディング**
+   ```bash
+   docker-compose exec php php artisan migrate:fresh --seed
+   ```
+
+2. **ストレージの権限設定とリンク作成（画像が表示されない場合）**
+   ```bash
+   docker-compose exec php chown -R www-data:www-data storage
+   docker-compose exec php chmod -R 775 storage
+   docker-compose exec php php artisan storage:link
+   ```
+
 ---
 
 ### 📋 テーブル設計
