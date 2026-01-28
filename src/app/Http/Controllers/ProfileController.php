@@ -37,6 +37,8 @@ class ProfileController extends Controller
     {
         $user = Auth::user();
 
+        $isFirstTime = Profile::where('user_id', $user->id)->doesntExist();
+
         $user->name = $request->name;
         $user->save();
 
@@ -56,11 +58,11 @@ class ProfileController extends Controller
             $profileData
         );
 
-        if ($request->header('referer') && str_contains($request->header('referer'), '/mypage/profile')) {
-            return redirect('/mypage');
+        if ($isFirstTime) {
+            return redirect('/');
         }
 
-        return redirect('/');
+        return redirect('/mypage');
     }
 
     public function editAddress($itemId)
