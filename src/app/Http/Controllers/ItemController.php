@@ -13,6 +13,10 @@ class ItemController extends Controller
 {
     public function index(Request $request)
     {
+        if (Auth::check() && !Auth::user()->hasVerifiedEmail()) {
+            return redirect()->route('verification.notice');
+        }
+
         $query = Item::query();
 
         if (Auth::check()) {

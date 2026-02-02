@@ -42,17 +42,13 @@ Route::middleware('auth')->group(function () {
         Route::get('/mypage', [ProfileController::class, 'index'])->name('mypage.index');
         Route::get('/mypage/profile', [ProfileController::class, 'edit'])->name('mypage.edit');
         Route::post('/mypage/profile', [ProfileController::class, 'update'])->name('mypage.update');
-
         Route::post('item/{item_id}/like', [LikeController::class, 'like'])->name('item.like');
         Route::post('item/{item_id}/comment', [CommentController::class, 'store'])->name('item.comment');
-
         Route::get('/purchase/{item_id}', [PurchaseController::class, 'create'])->name('purchase.create');
         Route::post('/purchase/{item_id}', [PurchaseController::class, 'store'])->name('purchase.store');
         Route::get('/purchase/success/{item_id}', [PurchaseController::class, 'success'])->name('purchase.success');
-
         Route::get('/purchase/address/{item_id}', [ProfileController::class, 'editAddress'])->name('purchase.address.edit');
         Route::post('/purchase/address/{item_id}', [ProfileController::class, 'updateAddress'])->name('purchase.address.update');
-
         Route::get('/sell', [ItemController::class, 'create'])->name('item.create');
         Route::post('/sell', [ItemController::class, 'store'])->name('item.store');
     });
