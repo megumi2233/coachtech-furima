@@ -12,6 +12,12 @@ class PurchaseController extends Controller
 {
     public function create($itemId)
     {
+        $user = Auth::user();
+
+        if (!$user->profile) {
+            return redirect('/mypage/profile');
+        }
+
         $item = Item::findOrFail($itemId);
 
         if ($item->purchase) {
