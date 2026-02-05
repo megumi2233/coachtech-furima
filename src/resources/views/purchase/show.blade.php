@@ -30,8 +30,7 @@
                             <option value="card">カード支払い</option>
                         </select>
                         @error('payment_method')
-                            <div class="error-message"
-                                style="color: #ff5555; font-size: 14px; margin-top: 5px; font-weight: bold;">
+                            <div class="error-message">
                                 {{ $message }}
                             </div>
                         @enderror

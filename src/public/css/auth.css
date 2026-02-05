@@ -72,8 +72,9 @@ body {
 
 .form-error {
     color: #ff0000;
-    font-size: 12px;
+    font-size: 14px;
     margin-top: 5px;
+    font-weight: bold;
 }
 
 .link-text {

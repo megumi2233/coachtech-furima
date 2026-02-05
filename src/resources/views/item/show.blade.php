@@ -75,8 +75,10 @@
                     <div class="comment-item">
                         <div class="comment-user">
                             <div class="user-icon">
-                                <img src="{{ !empty($comment->user->profile?->avatar_url) ? asset('storage/' . $comment->user->profile->avatar_url) : asset('images/default-avatar.png') }}"
-                                    alt="" class="user-icon-img">
+                                <div class="user-icon-img-wrapper">
+                                    <img src="{{ !empty($comment->user->profile?->avatar_url) ? asset('storage/' . $comment->user->profile->avatar_url) : asset('images/default-avatar.png') }}"
+                                        alt="" class="user-icon-img">
+                                </div>
                             </div>
                             <span class="user-name">{{ $comment->user->name }}</span>
                         </div>
@@ -90,10 +92,10 @@
                     <h3>商品へのコメント</h3>
                     <form action="{{ route('item.comment', ['item_id' => $item->id]) }}" method="post">
                         @csrf
+                        <textarea class="comment-input" name="comment" rows="5"></textarea>
                         @error('comment')
                             <div class="error-message">{{ $message }}</div>
                         @enderror
-                        <textarea class="comment-input" name="comment" rows="5"></textarea>
                         <button class="comment-button" type="submit">コメントを送信する</button>
                     </form>
                 </div>

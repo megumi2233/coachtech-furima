@@ -8,7 +8,7 @@
     <div class="sell-container">
         <h2 class="page-title">商品の出品</h2>
 
-        <form action="/sell" method="POST" enctype="multipart/form-data">
+        <form action="/sell" method="POST" enctype="multipart/form-data" novalidate>
             @csrf
 
             <div class="form-group">
@@ -89,7 +89,7 @@
                 <label class="form-label" for="price">販売価格</label>
                 <div class="price-input-wrapper">
                     <span class="currency-symbol">¥</span>
-                    <input type="number" id="price" name="price" class="form-control price-input"
+                    <input type="text" id="price" name="price" class="form-control price-input"
                         value="{{ old('price') }}">
                 </div>
                 @error('price')
