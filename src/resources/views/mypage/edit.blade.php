@@ -29,16 +29,17 @@
             @enderror
 
             <div class="form-group">
-                <label for="name">ユーザー名</label>
-                <input type="text" id="name" name="name" value="{{ old('name', $user->name) }}">
+                <label for="name" class="form-label">ユーザー名</label>
+                <input type="text" id="name" name="name" class="form-input"
+                    value="{{ old('name', $user->name) }}">
                 @error('name')
                     <p class="error-message">{{ $message }}</p>
                 @enderror
             </div>
 
             <div class="form-group">
-                <label for="postal-code">郵便番号</label>
-                <input type="text" id="postal-code" name="postal_code"
+                <label for="postal-code" class="form-label">郵便番号</label>
+                <input type="text" id="postal-code" name="postal_code" class="form-input"
                     value="{{ old('postal_code', $profile->zipcode ?? '') }}">
                 @error('postal_code')
                     <p class="error-message">{{ $message }}</p>
@@ -46,16 +47,17 @@
             </div>
 
             <div class="form-group">
-                <label for="address">住所</label>
-                <input type="text" id="address" name="address" value="{{ old('address', $profile->address ?? '') }}">
+                <label for="address" class="form-label">住所</label>
+                <input type="text" id="address" name="address" class="form-input"
+                    value="{{ old('address', $profile->address ?? '') }}">
                 @error('address')
                     <p class="error-message">{{ $message }}</p>
                 @enderror
             </div>
 
             <div class="form-group">
-                <label for="building">建物名</label>
-                <input type="text" id="building" name="building"
+                <label for="building" class="form-label">建物名</label>
+                <input type="text" id="building" name="building" class="form-input"
                     value="{{ old('building', $profile->building_name ?? '') }}">
                 @error('building')
                     <p class="error-message">{{ $message }}</p>
