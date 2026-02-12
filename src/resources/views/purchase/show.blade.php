@@ -15,7 +15,7 @@
                         <img src="{{ asset('storage/' . $item->img_url) }}" alt="{{ $item->name }}">
                     </div>
                     <div class="purchase-item-info">
-                        <h2 class="purchase-item-name">{{ $item->name }}</h2>
+                        <h1 class="purchase-item-name">{{ $item->name }}</h1>
                         <p class="purchase-item-price">¥{{ number_format($item->price) }}</p>
                     </div>
                 </div>

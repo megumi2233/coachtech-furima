@@ -14,7 +14,7 @@
         </div>
 
         <div class="item-detail-info">
-            <h2 class="item-detail-name">{{ $item->name }}</h2>
+            <h1 class="item-detail-name">{{ $item->name }}</h1>
             <p class="item-detail-brand">{{ $item->brand_name }}</p>
             <p class="item-detail-price">¥{{ number_format($item->price) }} <span class="tax">(税込)</span></p>
 

@@ -6,6 +6,7 @@
 
 @section('content')
     <div class="verify-content">
+        <h1 class="visually-hidden">メール認証</h1>
         @if (session('message'))
             <div class="verify-content-alert">
                 {{ session('message') }}

@@ -6,7 +6,7 @@
 
 @section('content')
     <div class="sell-container">
-        <h2 class="page-title">商品の出品</h2>
+        <h1 class="page-title">商品の出品</h1>
 
         <form action="/sell" method="POST" enctype="multipart/form-data" novalidate>
             @csrf

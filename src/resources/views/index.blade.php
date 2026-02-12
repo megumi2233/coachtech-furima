@@ -5,6 +5,7 @@
 @endsection
 
 @section('content')
+    <h1 class="visually-hidden">商品一覧</h1>
     <div class="product-list">
         <div class="product-list-header">
             <a href="/?tab=recommend&keyword={{ request('keyword') }}"
@@ -19,7 +20,6 @@
 
         <div class="product-list-content">
             @if (request('tab') == 'mylist' && !Auth::check())
-                {{-- 未ログイン時のマイリスト表示用（必要に応じてメッセージ等を追加） --}}
             @else
                 @foreach ($items as $item)
                     <div class="product-card">
